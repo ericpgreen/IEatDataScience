@@ -1,0 +1,7 @@
+---
+title: "I Eat Data Science for Breakfast"
+output:
+  html_document:
+    toc_float: false
+---
+![](img/ieat.png)

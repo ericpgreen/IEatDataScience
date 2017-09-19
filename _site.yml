@@ -1,0 +1,22 @@
+name: "I-Eat-Data-Science-for-Breakfast"
+output_dir: "."
+navbar:
+  title: "IEDSFB"
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Overview"
+      href: overview.html
+    - text: "Week 1"
+      href: w1.html
+output:
+  html_document:
+    theme: yeti
+    highlight: tango
+    fig_caption: true
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    css: styles.css
