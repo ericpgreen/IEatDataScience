@@ -1,0 +1,182 @@
+---
+title: 
+output: 
+  revealjs::revealjs_presentation:
+    theme: black
+    highlight: kate
+    center: true
+    transition: none
+    reveal_options:
+      progress: true
+      slideNumber: true
+---
+
+## {data-background="w01-cover.jpg"}
+
+<style type="text/css">
+p { text-align: left; }
+</style>
+
+## Objectives 
+
+By the end of this session, you should be able to:
+
+* State the benefits of a reproducible analysis
+* Login to your RStudio instance and explain the layout
+* Illustrate the use of the Markdown language
+* Explain how to seek help and create a reproducible example
+
+## Reproducibility {data-background-image="https://media.giphy.com/media/j8sVwJid3NdjG/giphy.gif"}
+
+## Workflows
+
+## {data-background-iframe="https://kieranhealy.org/resources/"} 
+
+## {data-background-iframe="http://socviz.co/index.html"} 
+
+## Simplified Model 
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/workflow.png")
+```
+
+## Tools
+
+* **RStudio**: provides a nicer interface for using R and an authoring framework for data science
+* **LaTeX**: helps behind the scenes to knit to PDF and offers more control over typesetting
+* **Zotero, BibDesk, and .bib files**: manage references 
+
+## {data-background-iframe="http://rmarkdown.rstudio.com/"}
+
+## {data-background-iframe="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0"}
+
+## Using Duke's Docker-ized version of RStudio Server
+
+In this workshop, we will use RStudio via the web. 
+
+* Login to your instance by going to [https://vm-manage.oit.duke.edu/containers](https://vm-manage.oit.duke.edu/containers) and entering your NetID. 
+* Click on Docker
+* Click on RStudio
+
+## RStudio Interface
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/rstudio.png")
+```
+
+## RStudio Interface
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/rstudio-markup.png")
+```
+
+## Projects
+
+Never hardcode a working directory again!
+
+* Click on Projects
+* Choose to create a new project
+* Follow the prompt to create a new directory called "ieat"
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/project.png")
+```
+
+## Organization
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/folders.png")
+```
+
+## Organization
+
+```{r, echo=FALSE, out.width = "50%"}
+knitr::include_graphics("../img/folders2.png")
+```
+
+## New files
+
+```{r, echo=FALSE, out.width = "50%"}
+knitr::include_graphics("../img/filenew.png")
+```
+
+## R script
+
+Create a new R script file
+
+* similar to Stata's do file
+* not interactive
+* output appears in console and plot window
+
+```{r, echo=FALSE, out.width = "50%"}
+knitr::include_graphics("../img/rscript.png")
+```
+
+## RMarkdown
+
+Create a new RMarkdown HTML file
+
+```{r, echo=FALSE, out.width = "70%"}
+knitr::include_graphics("../img/rmd.png")
+```
+
+## Markdown language
+
+```{r, eval=FALSE}
+  Plain text
+  *italics*
+  **bold**
+  `monospaced font`
+  ~~strikethrough~~ 
+  sub/superscript^2^~2~
+  endash: --, emdash: ---
+  equation: $A = \pi*r^{2}$
+  $$E = mc^{2}$$
+  > block quote 
+  list:
+  * item 1
+  * item 2
+  * item 3
+```
+
+## Getting help
+
+* Google
+* Read the documentation
+* Stack Overflow
+* Github issues / listserves for specific packages
+* New: [https://community.rstudio.com/](https://community.rstudio.com/)
+
+## An unexpected result!
+
+```{r}
+x <- c(4, 2, 6, 9, 2, 5, 4, 3, 7, 6, 8, 4, 7, 2, NA, 3)
+x_mean <- mean(x)
+x_mean
+```
+
+## ?function
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/help.png")
+```
+
+## Stack Overflow
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/so.png")
+```
+
+## Bad questions
+
+```{r, echo=FALSE, out.width = "50%"}
+knitr::include_graphics("../img/badquestion.png")
+```
+
+## Reproducible Example
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("../img/reproex.png")
+```
+
+

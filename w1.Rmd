@@ -1,5 +1,18 @@
 ---
-title: "Week 1"
+title: "Getting Started"
 ---
-  
-Overview here
+
+<br>
+
+# Objectives
+
+By the end of this session, you should be able to:
+
+* State the benefits of a reproducible analysis
+* Login to your RStudio instance and explain the layout
+* Illustrate the use of the Markdown language
+* Explain how to seek help and create a reproducible example
+
+# Slide Deck
+
+Follow along [here](decks/w01_deck.html)

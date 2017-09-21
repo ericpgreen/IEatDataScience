@@ -4,4 +4,11 @@ output:
   html_document:
     toc_float: false
 ---
-![](img/ieat.png)
+
+<br>
+
+```{r, echo=FALSE, out.width = "75%"}
+library(knitr)
+knitr::include_graphics("img/ieat.png")
+```
+
