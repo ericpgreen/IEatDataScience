@@ -1,0 +1,86 @@
+---
+title: 
+output: 
+  revealjs::revealjs_presentation:
+    theme: black
+    highlight: kate
+    center: true
+    transition: none
+    reveal_options:
+      progress: true
+      slideNumber: true
+---
+
+## {data-background="w01-cover.jpg"}
+
+<!-- TODO: change to w02-cover.jpg -->
+
+<style type="text/css">
+p { text-align: left; }
+</style>
+
+## Objectives 
+
+By the end of this session, you should be able to:
+
+* Load data into R from multiple sources
+* Write tidy code to inspect and clean your data
+* Enjoy the tfw your code is commented and readable
+
+## Remember...
+
+"R does exactlly what you tell it to do, rather than what you want it to do." - Kieren Healy
+
+* No one writes error-free code the first time
+* De-bugging and testing are part of the process
+* Each error you make teaches you something about how R works
+
+## Common errors
+
+* Unbalanced parentheses
+* Completing expressions (+ vs. > in the command line)
+* Code that wraps across lines (+)
+* Spelling!
+
+## Style Manual
+
+* camelCase
+* naming conventions
+* data types
+
+## Libraries
+
+library(foreign)
+
+library(tidyverse)
+
+## Read it
+
+* csv
+* Excel
+* Google Sheets
+* Stata
+* APIs
+
+## Check it out
+
+* glimpse
+* str
+* plot it
+
+## code
+ <style>background-color:#FFFFFF</style>
+
+  <pre><code>
+defmodule Math do
+  <mark>def sum(a, b) do</mark>
+    <mark>a + b</mark>
+  <mark>end</mark>
+end
+  </code></pre>
+
+## Summary Statistics
+
+* pipe something for groups
+
+

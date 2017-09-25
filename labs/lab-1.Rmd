@@ -1,0 +1,26 @@
+---
+title: "r2d2 analysis"
+author: "Your Name Here"
+date: "date object"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
+
+```
+
+```{r loadData, include=FALSE}
+
+```
+
+```{r clean-construct, include=FALSE}
+
+```
+
+```{r analyze, include=FALSE}
+
+```
