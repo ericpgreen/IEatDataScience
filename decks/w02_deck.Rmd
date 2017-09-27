@@ -62,11 +62,32 @@ library(tidyverse)
 * Stata
 * APIs
 
+## Google Drive
+* This will take you to your web authorization and give you access
+ to your Google Drive files
+ 
+library("googledrive")
+drive_find(n_max = 25)
+
+## API
+
+* It's basically a web address
+* then you tell R where to go and what language you want back (JSON, xml)
+* then use an R package to get it into a format R can understand
+
 ## Check it out
 
 * glimpse
 * str
 * plot it
+* data science dinosaur (outliers)
+
+## tidyr
+glimpse()
+group_by()
+mutate()
+summarise()
+n()
 
 ## code
  <style>background-color:#FFFFFF</style>
@@ -82,5 +103,10 @@ end
 ## Summary Statistics
 
 * pipe something for groups
+
+## other useful code
+
+paste0()
+loops
 
 

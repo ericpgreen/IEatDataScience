@@ -1,0 +1,156 @@
+---
+title: "r2d2 analysis"
+author: "Your Name Here"
+date: "date object"
+output: pdf_document
+---
+
+```{r libraries, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(foreign)
+library(stargazer)
+library(reshape2)
+library(purrr)
+```
+
+```{r setup, include=FALSE}
+  opts_knit$set(root.dir=normalizePath('../../')) # go up levels
+  options(scipen=999) # turn off scientific notation for numbers
+  opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE)
+  nocomma <- function(x){structure(x,class="nocomma")}
+  knit_hooks$set(inline = function(x) {
+      if(is.na(as.numeric(x))) return(x)
+      if(!inherits(x,"nocomma")) return(prettyNum(x, big.mark=","))
+      if(inherits(x,"nocomma")) return(x)
+      return(x) # default
+  })
+```
+
+# Load
+
+```{r loadData, include=TRUE}
+r2d2 <- read.csv("r2d2/input/clean/r2d2.csv")
+  
+```
+
+# glimpse()
+
+```{r explore1, include=TRUE}
+
+# what's in there?
+glimpse(r2d2)
+```
+
+# str()
+
+```{r explore2, include=TRUE}
+
+# what's in there?
+str(r2d2)
+```
+
+# clean-construct
+
+```{r clean-construct, include=TRUE}
+
+# we noticed that caregiver HIV status is a factor with levels
+# "negative" or "positive"
+
+table(r2d2$HIV4.r1)
+
+# mutate caregiver's HIV status
+r2d2 <-
+  r2d2 %>%
+  mutate(p.HIVpos=ifelse(HIV4.r1=="positive", 1, 0))
+
+# check that you did it correctly
+table(r2d2$HIV4, r2d2$p.HIVpos, exclude=NULL)
+
+# what about people who refused? if you want to use this predictor in a regression
+# all those w/NA will be dropped, see?
+summary(lm(p.knowsHIV.r1 ~ p.HIVpos, data=r2d2))
+
+# let's make it prettier
+m1 <- lm(p.knowsHIV.r1 ~ p.HIVpos, data=r2d2)
+stargazer(m1,
+          type="text")
+
+# those who refused likely were HIV positive, let's change that
+r2d2 <-
+  r2d2 %>%
+  mutate(p.HIVpos=ifelse(is.na(HIV4.r1), 1, p.HIVpos))
+
+# It actually didn't change the predictive power
+m2 <- lm(p.knowsHIV.r1 ~ p.HIVpos, data=r2d2)
+
+
+stargazer(m1, m2,
+          type="text")
+
+# why does m1 still have missing data
+# even though we updated it?
+# The output is saved as a list!
+# you need to recreate the output to create a new object
+
+
+```
+
+# Descriptive Table
+
+```{r descriptive table, include=TRUE}
+r2d2Total <-
+  r2d2 %>%
+  mutate(p.knowsHIV.r1="Total")
+
+descTable <-
+  r2d2 %>%
+    rbind(., r2d2Total) %>%
+    group_by(p.knowsHIV.r1) %>%
+    summarise(c.age=round(mean(c.age.r1, na.rm=T), 1),
+              p.age=round(mean(p.age.r1, na.rm=T), 1),
+              c.eduCompPri=round(mean(c.eduCompPri.r1, na.rm=T)*100, 1),
+              p.eduCompPri=round(mean(p.eduCompPri.r1, na.rm=T)*100, 1),
+              p.bio=round(mean(p.bio.r1, na.rm=T)*100, 1),
+              p.HIVpos=round(mean(p.HIVpos, na.rm=T)*100, 1),
+              Npct=paste0(as.numeric(n()), " (",
+                          pct=round(n()/nrow(r2d2)*100, 1),
+                          ")")) %>%
+    data.frame(.) %>%
+    melt(., id=c("p.knowsHIV.r1")) %>%
+    reshape(.,
+            idvar="variable",
+            timevar="p.knowsHIV.r1",
+            direction="wide") %>%
+    mutate(variable=plyr::mapvalues(variable,
+                         from=c("c.age", "p.age",
+                                "c.eduCompPri", "p.eduCompPri",
+                                "p.bio", "p.HIVpos", "Npct"),
+                         to=c("Child's Age", "Caregiver's Age",
+                              "Child completed primary (%)",
+                              "Caregiver completed primary (%)",
+                              "Biological caregiver (%)",
+                              "Caregiver HIV+ (%)",
+                              "N (%)"))) %>%
+    mutate(variable=factor(variable,
+                           levels=c("N (%)",
+                                    "Caregiver's Age",
+                                    "Caregiver completed primary (%)",
+                                    "Biological caregiver (%)",
+                                    "Caregiver HIV+ (%)",
+                                    "Child's Age",
+                                    "Child completed primary (%)"), ordered=TRUE)) %>%
+  arrange(variable) %>%
+  mutate(Variable=variable,
+         `Not Disclosed`=value.0,
+         Disclosed=value.1,
+         Total=value.Total) %>%
+  select(Variable, Disclosed, `Not Disclosed`, Total)
+
+
+```
+
+```{r kable}
+kable(descTable)
+  
+```
