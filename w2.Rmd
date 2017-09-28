@@ -1,0 +1,17 @@
+---
+title: "Importing and Cleaning Data"
+---
+
+<br>
+
+# Objectives
+
+By the end of this session, you should be able to:
+
+* Load data into R from multiple sources
+* Write tidy code to inspect and clean your data
+* Enjoy the tfw your code is commented and readable
+
+# Slide Deck
+
+Follow along [here](decks/w02_deck.html)

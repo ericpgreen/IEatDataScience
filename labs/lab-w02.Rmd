@@ -1,0 +1,36 @@
+---
+title: "IEDSFB Week 2"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+  knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+This is your first reproducible report! The top section of this file between the `---` lines is the YAML metadata where you can change the document preferences. Go to [RStudio's website](http://rmarkdown.rstudio.com/formats.html) to learn about different output formats and templates.
+
+# Markdown Practice
+
+Use your Markdown cheatsheet to replace this text with some Markdown of your own.
+
+# Importing Data
+
+```{r libraries, include=FALSE}
+
+```
+
+```{r loadData, include=FALSE}
+
+```
+
+```{r clean-construct, include=FALSE}
+
+```
+
+```{r analyze, include=FALSE}
+
+```
