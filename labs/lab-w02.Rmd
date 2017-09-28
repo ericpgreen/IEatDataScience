@@ -2,11 +2,15 @@
 title: "IEDSFB Week 2"
 author: "Your Name Here"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
   knitr::opts_chunk$set(echo = TRUE)
+  opts_knit$set(root.dir=normalizePath('../'))
 ```
 
 # Introduction
@@ -19,18 +23,50 @@ Use your Markdown cheatsheet to replace this text with some Markdown of your own
 
 # Importing Data
 
-```{r libraries, include=FALSE}
+## Download to machine
+
+The data files we want to import are sitting on Dropbox. We could import directly into the R session, but let's first download the files to your project directory and then load into R. The loading step will teach you how read in files from your local machine.
+
+The following code chunk will download the files. 
+* Replace `input` with the name of the folder where you want to store raw data. 
+* Run this code chunk once. Once you run it successfully, replace `{r}` with `{r, eval=FALSE}` to prevent R from trying to download the files over and over again.
+
+```{r download}
+  download.file("https://www.dropbox.com/s/k4d2j6feayezkun/r2d2.csv?dl=1", 
+                destfile = "input/r2d2-w02.csv")
+  download.file("https://www.dropbox.com/s/1e2tqqmfzmzaybe/r2d2.dta?dl=1", 
+                destfile = "input/r2d2-w02.dta")
+  download.file("https://www.dropbox.com/s/6b8t2c877yvqeax/r2d2.rds?dl=1", 
+                destfile = "input/r2d2-w02.rds")
+  download.file("https://www.dropbox.com/s/beftqecfs4vvuss/r2d2.sas?dl=1", 
+                destfile = "input/r2d2-w02.sas")
+  download.file("https://www.dropbox.com/s/tiqgit23db2fk8x/r2d2.txt?dl=1", 
+                destfile = "input/r2d2-w02.text")
+  download.file("https://www.dropbox.com/s/7a3i7e0bfmqiikr/r2d2.xlsx?dl=1", 
+                destfile = "input/r2d2-w02.xlsx")
+```
+
+```{r loadCSV}
+  
+```
+
+```{r str}
 
 ```
 
-```{r loadData, include=FALSE}
+The `datCSV` data frame has ... observations (rows) and ... columns.
+
+```{r glimpse}
 
 ```
 
-```{r clean-construct, include=FALSE}
+
+```{r head}
 
 ```
 
-```{r analyze, include=FALSE}
+
+```{r kable}
 
 ```
+
