@@ -1,0 +1,18 @@
+---
+title: "Importing and Inspecting Data"
+---
+
+<br>
+
+# Objectives
+
+By the end of this session, you should be able to:
+
+* Load data into R from multiple sources
+* naming
+* types
+* inspect
+
+# Slide Deck
+
+Follow along [here](decks/w03_deck.html)

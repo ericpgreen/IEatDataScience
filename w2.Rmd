@@ -1,5 +1,5 @@
 ---
-title: "Importing and Cleaning Data"
+title: "Importing Data"
 ---
 
 <br>
@@ -9,7 +9,7 @@ title: "Importing and Cleaning Data"
 By the end of this session, you should be able to:
 
 * Load data into R from multiple sources
-* Write tidy code to inspect and clean your data
+* Write Rmarkdown syntax and knit an Rmarkdown file
 * Enjoy the tfw your code is commented and readable
 
 # Slide Deck

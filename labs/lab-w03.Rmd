@@ -1,5 +1,5 @@
 ---
-title: "IEDSFB Week 2"
+title: "IEDSFB Week 3"
 author: "Your Name Here"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -15,23 +15,15 @@ output:
 
 # Introduction
 
-This is your first reproducible report! The top section of this file between the `---` lines is the YAML metadata where you can change the document preferences. Go to [RStudio's website](http://rmarkdown.rstudio.com/formats.html) to learn about different output formats and templates.
 
-# Markdown Practice
-
-Use your Markdown cheatsheet to replace this text with some Markdown of your own.
 
 # Importing Data
 
 ## Download to machine
 
-The data files we want to import are sitting on Dropbox. We could import directly into the R session, but let's first download the files to your project directory and then load into R. The loading step will teach you how read in files from your local machine.
+Last week you downloaded data into the `input` folder. Here's the code chunk with the download commands for reference in case you need to do it again. The chunk is set to `eval=FALSE` so that R will not run it. 
 
-The following code chunk will download the files. 
-* Replace `input` with the name of the folder where you want to store raw data. 
-* Run this code chunk once. Once you run it successfully, replace `{r}` with `{r, eval=FALSE}` to prevent R from trying to download the files over and over again.
-
-```{r download}
+```{r download, evel=FALSE}
   download.file("https://www.dropbox.com/s/k4d2j6feayezkun/r2d2.csv?dl=1", 
                 destfile = "input/r2d2-w02.csv")
   download.file("https://www.dropbox.com/s/1e2tqqmfzmzaybe/r2d2.dta?dl=1", 
@@ -48,4 +40,24 @@ The following code chunk will download the files.
 
 ```{r loadCSV}
   
+```
+
+```{r str}
+
+```
+
+The `datCSV` data frame has ... observations (rows) and ... columns.
+
+```{r glimpse}
+
+```
+
+
+```{r head}
+
+```
+
+
+```{r kable}
+
 ```
