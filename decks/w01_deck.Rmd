@@ -2,8 +2,8 @@
 title: 
 output: 
   revealjs::revealjs_presentation:
-    theme: black
-    highlight: kate
+    theme: white
+    highlight: tango
     center: true
     transition: none
     reveal_options:
@@ -26,7 +26,7 @@ By the end of this session, you should be able to:
 * Illustrate the use of the Markdown language
 * Explain how to seek help and create a reproducible example
 
-## Reproducibility {data-background-image="https://media.giphy.com/media/j8sVwJid3NdjG/giphy.gif"}
+## <span style="color:red">Reproducibility</span> {data-background-image="https://media.giphy.com/media/j8sVwJid3NdjG/giphy.gif"}
 
 ## Workflows
 
@@ -36,9 +36,9 @@ By the end of this session, you should be able to:
 
 ## Simplified Model 
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/workflow.png")
-```
+<center>
+<img src="../img/workflow.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Tools
 
@@ -60,15 +60,15 @@ In this workshop, we will use RStudio via the web.
 
 ## RStudio Interface
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/rstudio.png")
-```
+<center>
+<img src="../img/rstudio.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## RStudio Interface
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/rstudio-markup.png")
-```
+<center>
+<img src="../img/rstudio-markup.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Projects
 
@@ -78,27 +78,27 @@ Never hardcode a working directory again!
 * Choose to create a new project
 * Follow the prompt to create a new directory called "ieat"
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/project.png")
-```
+<center>
+<img src="../img/project.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Organization
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/folders.png")
-```
+<center>
+<img src="../img/folders.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Organization
 
-```{r, echo=FALSE, out.width = "50%"}
-knitr::include_graphics("../img/folders2.png")
-```
+<center>
+<img src="../img/folders2.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## New files
 
-```{r, echo=FALSE, out.width = "50%"}
-knitr::include_graphics("../img/filenew.png")
-```
+<center>
+<img src="../img/filenew.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## R script
 
@@ -108,36 +108,55 @@ Create a new R script file
 * not interactive
 * output appears in console and plot window
 
-```{r, echo=FALSE, out.width = "50%"}
-knitr::include_graphics("../img/rscript.png")
-```
+<center>
+<img src="../img/rscript.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## RMarkdown
 
 Create a new RMarkdown HTML file
 
-```{r, echo=FALSE, out.width = "70%"}
-knitr::include_graphics("../img/rmd.png")
-```
+<center>
+<img src="../img/rmd.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Markdown language
 
 ```{r, eval=FALSE}
-  Plain text
-  *italics*
-  **bold**
-  `monospaced font`
-  ~~strikethrough~~ 
-  sub/superscript^2^~2~
-  endash: --, emdash: ---
-  equation: $A = \pi*r^{2}$
-  $$E = mc^{2}$$
-  > block quote 
-  list:
+Plain text, *italics*, **bold**, `monospaced font`
+
+~~strikethrough~~, sub/superscript^2^~2~, endash: --, emdash: ---
+  
+equation: $A = \pi*r^{2}$
+  
+$$E = mc^{2}$$
+  
+> block quote 
+  
+list:
+  
   * item 1
   * item 2
   * item 3
 ```
+
+## Markdown Language
+
+Plain text, *italics*, **bold**, `monospaced font`
+
+~~strikethrough~~, sub/superscript^2^~2~, endash: --, emdash: ---
+  
+equation: $A = \pi*r^{2}$
+  
+$$E = mc^{2}$$
+  
+> block quote 
+  
+list:
+  
+  * item 1
+  * item 2
+  * item 3
 
 ## Getting help
 
@@ -157,26 +176,26 @@ x_mean
 
 ## ?function
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/help.png")
-```
+`?mean`
+
+<center>
+<img src="../img/help.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Stack Overflow
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/so.png")
-```
+<center>
+<img src="../img/so.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Bad questions
 
-```{r, echo=FALSE, out.width = "50%"}
-knitr::include_graphics("../img/badquestion.png")
-```
+<center>
+<img src="../img/badquestion.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
 ## Reproducible Example
 
-```{r, echo=FALSE, out.width = "100%"}
-knitr::include_graphics("../img/reproex.png")
-```
-
-
+<center>
+<img src="../img/reproex.png" style="background:none; border:none; box-shadow:none;">
+</center>

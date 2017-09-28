@@ -12,6 +12,8 @@ By the end of this session, you should be able to:
 * Write Rmarkdown syntax and knit an Rmarkdown file
 * Enjoy the tfw your code is commented and readable
 
+<br>
+
 # Slide Deck
 
 Follow along [here](decks/w02_deck.html)
