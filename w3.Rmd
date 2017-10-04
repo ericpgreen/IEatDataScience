@@ -1,5 +1,8 @@
 ---
 title: "Importing and Inspecting Data"
+output:
+  html_document:
+    toc: false
 ---
 
 <br>
