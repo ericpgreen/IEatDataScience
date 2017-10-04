@@ -15,6 +15,6 @@ By the end of this session, you should be able to:
 
 <br>
 
-# Slide Deck
+<iframe width="768" height="560" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w01_deck.html"></iframe>
 
-Follow along [here](decks/w01_deck.html)
+Or follow along [here](decks/w01_deck.html)

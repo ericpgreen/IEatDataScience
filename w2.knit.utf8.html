@@ -11,7 +11,7 @@
 
 
 
-<title>Getting Started</title>
+<title>Importing Data</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,6 +25,49 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -289,7 +332,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Getting Started</h1>
+<h1 class="title toc-ignore">Importing Data</h1>
 
 </div>
 
@@ -299,15 +342,18 @@ div.tocify {
 <h1>Objectives</h1>
 <p>By the end of this session, you should be able to:</p>
 <ul>
-<li>State the benefits of a reproducible analysis</li>
-<li>Login to your RStudio instance and explain the layout</li>
-<li>Illustrate the use of the Markdown language</li>
-<li>Explain how to seek help and create a reproducible example</li>
+<li>Load data into R from multiple sources</li>
+<li>Write Rmarkdown syntax and knit an Rmarkdown file</li>
+<li>Enjoy the tfw your code is commented and readable</li>
 </ul>
 <p><br></p>
-<iframe width="768" height="560" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w01_deck.html">
-</iframe>
-<p>Or follow along <a href="decks/w01_deck.html">here</a></p>
+</div>
+<div id="slide-deck" class="section level1">
+<h1>Slide Deck</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+shiny<span class="op">::</span><span class="kw">includeHTML</span>(<span class="st">&quot;decks/w02_deck.html&quot;</span>) </code></pre></div>
+<p>preserve4fb53e62b0741620</p>
+<p>Follow along <a href="decks/w02_deck.html">here</a></p>
 </div>
 
 
