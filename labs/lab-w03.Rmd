@@ -13,33 +13,62 @@ output:
   opts_knit$set(root.dir=normalizePath('../'))
 ```
 
-# Introduction
-
-
-
 # Importing Data
 
-## Download to machine
+## Download data to your machine
 
-Last week you downloaded data into the `input` folder. Here's the code chunk with the download commands for reference in case you need to do it again. The chunk is set to `eval=FALSE` so that R will not run it. 
+Last week you downloaded data into the `input` folder. We made a few changes to the data, so run this chunk again by pressing play. It will overwrite your existing files. You'll notice that the chunk is set to `eval=FALSE` so R will not download the data every time you knit the file.
 
-```{r download, evel=FALSE}
+```{r download, evel=FALSE, warning=FALSE, message=FALSE}
   download.file("https://www.dropbox.com/s/k4d2j6feayezkun/r2d2.csv?dl=1", 
                 destfile = "input/r2d2-w02.csv")
   download.file("https://www.dropbox.com/s/1e2tqqmfzmzaybe/r2d2.dta?dl=1", 
                 destfile = "input/r2d2-w02.dta")
   download.file("https://www.dropbox.com/s/6b8t2c877yvqeax/r2d2.rds?dl=1", 
                 destfile = "input/r2d2-w02.rds")
-  download.file("https://www.dropbox.com/s/beftqecfs4vvuss/r2d2.sas?dl=1", 
-                destfile = "input/r2d2-w02.sas")
+  download.file("https://www.dropbox.com/s/gwdp13x62u75m3s/r2d2.sas7bdat?dl=1", 
+                destfile = "input/r2d2-w02.sas7bdat")
+  download.file("https://www.dropbox.com/s/a8apx8h5f2n9dfq/r2d2.sav?dl=1", 
+                destfile = "input/r2d2-w02.sav")
   download.file("https://www.dropbox.com/s/tiqgit23db2fk8x/r2d2.txt?dl=1", 
                 destfile = "input/r2d2-w02.text")
   download.file("https://www.dropbox.com/s/7a3i7e0bfmqiikr/r2d2.xlsx?dl=1", 
                 destfile = "input/r2d2-w02.xlsx")
+  try(file.remove("input/r2d2-w02.sas")) # removes old version 
 ```
 
 ```{r loadCSV}
   
+```
+
+```{r loadRDS}
+  
+```
+
+```{r loadSTAT}
+  
+```
+
+```{r loadXLSX}
+  
+```
+
+```{r loadURL}
+  library(RCurl)
+  url <- getURL('https://docs.google.com/spreadsheets/d/e/2PACX-1vQLJfY4Hk0Uek5lLBxXrowCp-7XMP1_5Vze6grhUd5u_XcIlMzTkpwBG3sq0aZuzduNbpiv1oqPyd1w/pub?gid=1835311741&single=true&output=csv', 
+                ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+```
+
+```{r loadJSON}
+  source("https://tinyurl.com/y74jnzsc") # authentication code
+  twitter_user <- "realDonaldTrump"
+  url <- paste0("https://api.twitter.com/1.1/statuses/user_timeline.json?",
+                "count=10&",
+                "screen_name=", twitter_user)
+  req <- httr::GET(url, httr::add_headers(Authorization = token))
+  json <- httr::content(req, as = "text")
+  tweets <- fromJSON(json)
+  substring(tweets$text, 1, 100)
 ```
 
 ```{r str}

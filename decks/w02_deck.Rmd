@@ -21,9 +21,9 @@ p { text-align: left; }
 
 By the end of this session, you should be able to:
 
-* Load data into R from multiple sources
+* Load data into R from a CSV file
 * Write Rmarkdown syntax and knit an Rmarkdown file
-* Enjoy the tfw your code is commented and readable
+* Read a R help file
 
 ## <span style="color:red">Low frustration tolerance?</span> {data-background-image="https://media.giphy.com/media/kHU8W94VS329y/giphy.gif"}
 

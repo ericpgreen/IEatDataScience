@@ -21,9 +21,13 @@ p { text-align: left; }
 
 By the end of this session, you should be able to:
 
-* Load data into R from multiple sources
-* Write tidy code to inspect and clean your data
-* Enjoy the tfw your code is commented and readable
+* Import data from CSV, RDS, Stata, SAS, SPSS, URLs, and APIs
+* Inspect your data
+* Interpret piped code
+* Use row and column index values
+* Classify R data types
+
+## <span style="color:red">Two steps forward, one step back</span> {data-background-image="https://media.giphy.com/media/3oEduZ9znjJjORaZW0/giphy.gif"}
 
 ## Login to Duke's Docker-ized version of RStudio Server
 
@@ -34,38 +38,22 @@ By the end of this session, you should be able to:
 
 ## Open your project
 
-Last week you created a project for this workshop. Is this project still open? If not, click on the project icon to load it. (Don't create a new one.)
+Is your project still open? If not, click on the project icon to load it. (Don't create a new one.)
 
 <center>
 <img src="../img/project.png" style="background:none; border:none; box-shadow:none;">
 </center>
 
-## Confirm your working directory
-
-In your console run:
-
-```{r, eval=FALSE}
-getwd()
-```
-
-If you successfully created a project and have this project open, the working directory should be your project directory
-
-## Download the template
+## Download and open the template
 
 Change `products` to your preferred subfolder.
 
 ```{r, eval=FALSE}
-  download.file("https://tinyurl.com/y7j7bkpm", 
+  download.file("https://tinyurl.com/yarmjp8w", 
                 destfile = "products/lab-w03.Rmd")
 ```
 
-## Open template file
-
-<center>
-<img src="../img/lab-w02.png" style="background:none; border:none; box-shadow:none;">
-</center>
-
-## CSV
+## Import CSV
 
 A csv file is an ideal format for sharing data. Simple. Lightweight. Readable by any program. Import with the `read.csv()` function. Start by running `?read.csv` in the console to view the help file.
 
@@ -81,12 +69,12 @@ A csv file is an ideal format for sharing data. Simple. Lightweight. Readable by
 <img src="../img/readcsv_ann.png" style="background:none; border:none; box-shadow:none;">
 </center>
 
-## CSV
+## Import CSV
 
 Now import the csv file:
 
-```{r, eval=FALSE}
-datCSV <- read.csv("input/r2d2-w02.csv", stringsAsFactors = FALSE)
+```{r loadCSV, eval=FALSE}
+  datCSV <- read.csv("input/r2d2-w02.csv", stringsAsFactors = FALSE)
 ```
 
 This will create an object called `datCSV`.
@@ -103,10 +91,85 @@ You can name this object anything you want. The most important thing is to be co
 * Variable names should be nouns and function names should be verbs
 * camelCase is an option and can be used with _, as in `datWave1_wide`
 
+## RDS
+
+Any R object can be saved as an RDS file, so you might need to import from RDS on occassion:
+
+```{r loadRDS, eval=FALSE}
+  datRDS <- readRDS("input/r2d2-w02.rds")
+```
+
+## Import from other stats programs
+
+Maybe a collaborator works in Stata, SAS, or (gasp!) SPSS and wants to make the jump to R. No problem, just load the `haven` package:
+
+```{r loadSTAT, eval=FALSE}
+# install.packages("haven") # probably need to install this first
+  library(haven)
+  datDTA <- read_dta("input/r2d2-w02.dta")
+  datSAS <- read_sas("input/r2d2-w02.sas7bdat")
+  datSPSS <- read_sav("input/r2d2-w02.sav")
+```
+
+## Import from Excel
+
+Or maybe you have descended into the 6th circle of hell (heresy) and you are given data stored in Excel files. You can manually convert to CSV files and import, or you can use the `readxl` package that is part of the `tidyverse`.
+
+```{r loadXLSX, eval=FALSE}
+  library(readxl)
+  excel_sheets("input/r2d2-w02.xlsx")  # list sheets
+  datXLSX <- read_excel("input/r2d2-w02.xlsx", sheet="data")
+```
+
+## Import flat files from the Web
+
+You can use the `RCurl` package to grab data from the web. This link goes to a csv published on Google Drive.
+
+```{r loadURL, eval=FALSE}
+  library(RCurl)
+  url <- getURL('https://docs.google.com/spreadsheets/d/e/2PACX-1vQLJfY4Hk0Uek5lLBxXrowCp-7XMP1_5Vze6grhUd5u_XcIlMzTkpwBG3sq0aZuzduNbpiv1oqPyd1w/pub?gid=1835311741&single=true&output=csv', 
+                ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+  datURL <- read.csv(textConnection(url), header=T)
+```
+
+(Check out the [`googlesheets` package](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html) if you want to read and write from YOUR Google Sheets account.)
+
+## Import data from APIs
+
+```{r loadJSON}
+  source("https://tinyurl.com/y74jnzsc") # authentication code
+  twitter_user <- "realDonaldTrump"
+  url <- paste0("https://api.twitter.com/1.1/statuses/user_timeline.json?",
+                "count=10&",
+                "screen_name=", twitter_user)
+  req <- httr::GET(url, httr::add_headers(Authorization = token))
+  json <- httr::content(req, as = "text")
+  tweets <- fromJSON(json)
+  substring(tweets$text, 1, 100)
+```
+
+## Connect to Databases
+
+RStudio makes it easy to connect to a wide range of databases, query/analyze the data inside the database, and only import what you need into R. 
+
+<center>
+<img src="../img/w03-database.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+See [RStudio](https://db.rstudio.com/) for more details.
+
+## Check out your data frames
+
+If successful, you should see 7 `dat` dataframes in your environment. We'll focus on `datCSV` moving forward.
+
+<center>
+<img src="../img/w03-dataframes.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
 ## Examine the object
 
 ```{r, eval=FALSE}
-str(datCSV)
+  str(datCSV)
 ```
 
 <center>
@@ -167,84 +230,4 @@ If you get an error that there is no function called `kable_styling`, run `insta
 ## Two new notations
 
 Pipes `%>%` and [rows, columns]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Libraries
-
-library(foreign)
-
-library(tidyverse)
-
-## Read it
-
-* csv
-* Excel
-* Google Sheets
-* Stata
-* APIs
-
-## Google Drive
-* This will take you to your web authorization and give you access
- to your Google Drive files
- 
-library("googledrive")
-drive_find(n_max = 25)
-
-## API
-
-* It's basically a web address
-* then you tell R where to go and what language you want back (JSON, xml)
-* then use an R package to get it into a format R can understand
-
-## Check it out
-
-* glimpse
-* str
-* plot it
-* data science dinosaur (outliers)
-
-## tidyr
-glimpse()
-group_by()
-mutate()
-summarise()
-n()
-
-## code
- <style>background-color:#FFFFFF</style>
-
-  <pre><code>
-defmodule Math do
-  <mark>def sum(a, b) do</mark>
-    <mark>a + b</mark>
-  <mark>end</mark>
-end
-  </code></pre>
-
-## Summary Statistics
-
-* pipe something for groups
-
-## other useful code
-
-paste0()
-loops
-
 
