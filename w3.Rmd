@@ -1,5 +1,5 @@
 ---
-title: "Importing and Inspecting Data"
+title: "(More) Importing and Inspecting Data"
 output:
   html_document:
     toc: false
@@ -12,13 +12,11 @@ output:
 By the end of this session, you should be able to:
 
 * Import data from CSV, RDS, Stata, SAS, SPSS, URLs, and APIs
-* Inspect your data
-* Interpret piped code
-* Use row and column index values
-* Classify R data types
+* Inspect R objects
+* Conduct initial data checks
 
 <br>
 
-<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w03_deck.html"></iframe>
+<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w03_deck.html" style="border: none;"></iframe>
 
 Or follow along [here](decks/w03_deck.html)

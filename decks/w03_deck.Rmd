@@ -22,10 +22,8 @@ p { text-align: left; }
 By the end of this session, you should be able to:
 
 * Import data from CSV, RDS, Stata, SAS, SPSS, URLs, and APIs
-* Inspect your data
-* Interpret piped code
-* Use row and column index values
-* Classify R data types
+* Inspect R objects
+* Conduct initial data checks 
 
 ## <span style="color:red">Two steps forward, one step back</span> {data-background-image="https://media.giphy.com/media/3oEduZ9znjJjORaZW0/giphy.gif"}
 
@@ -166,9 +164,9 @@ If successful, you should see 7 `dat` dataframes in your environment. We'll focu
 <img src="../img/w03-dataframes.png" style="background:none; border:none; box-shadow:none;">
 </center>
 
-## Examine the object
+## Inspect the object
 
-```{r, eval=FALSE}
+```{r str, eval=FALSE}
   str(datCSV)
 ```
 
@@ -176,9 +174,9 @@ If successful, you should see 7 `dat` dataframes in your environment. We'll focu
 <img src="../img/str_datCSV.png" style="background:none; border:none; box-shadow:none;">
 </center>
 
-## Data frame
+## Data frame {data-background=#f4c842}
 
-R has several data types. `datCSV` is a **data frame** that consists of 372 rows and 13 variables. Let's use two built-in functions to do this count and print the results in line. Go to where you see the following line:
+R has several data types. `datCSV` is a **data frame** that consists of 372 rows and 12 variables. Let's use two built-in functions to do this count and print the results in line. Go to where you see the following line:
 
 > The `datCSV` data frame has ... observations (rows) and ... columns.
 
@@ -188,18 +186,16 @@ Replace the first `...` with \``nrow(datCSV)`\` for the number of rows, and repl
 
 We can also examine `datCSV` with the `glimpse()` function in the `dplyr` package, which is included in the `tidyverse`. 
 
-```{r, eval=FALSE}
-library(tidyverse)
-glimpse(datCSV)
+```{r glimpse, eval=FALSE}
+  library(tidyverse)
+  glimpse(datCSV)
 ```
 
-If you get an error that there is no function called `glimpse`, run `install.packages("tidyverse")` in the console.
-
-## Hide output
+## Hide output {data-background=#f4c842}
 
 Knit the file and you'll see that the glimpse results print. Replace `{r glimpse}` with `{r glimpse, results='hide'}` and knit again.
 
-## Stop code from printing
+## Stop code from printing {data-background=#f4c842}
 
 To turn off code printing, replace `{r glimpse, results='hide'}` with `{r glimpse, results='hide', echo=FALSE}` and knit again.
 
@@ -207,27 +203,94 @@ To turn off code printing, replace `{r glimpse, results='hide'}` with `{r glimps
 
 You can also use the functions `head()` or `tail()` to examine the first or last few rows.
 
-```{r eval=FALSE}
-head(datCSV)
-tail(csv)
+```{r head, eval=FALSE}
+  head(datCSV)
+  tail(csv)
 ```
 
-## Pretty tables
+## Quick exploration
 
-Use the `kableExtra` package to print nice HTML tables. Use this code and knit to HTML this time.
+One option for a quick summary of the dataframe is:
 
-```{r eval=FALSE}
-library(knitr)
-library(kableExtra)
-head(datCSV[, 1:6]) %>%
-  kable("html") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
-                full_width = F)
+```{r summary, eval=FALSE}
+  summary(datCSV)
 ```
 
-If you get an error that there is no function called `kable_styling`, run `install.packages("kableExtra")` in the console.
+But this can be unweildly when your dataframe is big.
 
-## Two new notations
+## Start by looking for problems
 
-Pipes `%>%` and [rows, columns]
+* Do any variables have values that are smaller or larger than you thought possible? See `min` and `max` of `summary()` output or run `min(datCSV$p.age.r1, na.rm=TRUE)` or `max(datCSV$p.age.r1, na.rm=TRUE)`.
+* Are any variables missing more data than you would have expected? 
 
+```{r table, eval=FALSE}
+  names(datCSV)
+  table(datCSV$p.knowsHowInf.r1, useNA="always")
+```
+
+`names(datCSV)` is a quick way to get the names of all variables (columns) in a dataframe.
+
+## Introduction to $
+
+* `datCSV` tells R to do something with the `datCSV` dataframe
+* `datCSV` followed by the `$` lets you access specific columns; RStudio will prompt you with column names as soon as you type `$` after the name of a dataframe
+
+## Introduction to NA
+
+* NA means missing data in R
+* A common trap in analysis is not understanding how the function you are using handles NAs by default
+
+```{r missing, eval=FALSE}
+  is.na(datCSV$p.knowsHowInf.r1) # gives a logical T/F if values is missing
+  sum(is.na(datCSV$p.knowsHowInf.r1)) # another way to count NA
+  any(is.na(datCSV$p.knowsHowInf.r1)) # tests if there are any NAs
+```
+
+## Vectors
+
+With `is.na(datCSV$p.knowsHowInf.r1)` we see a second data type: vectors. This vector stores data of the logical class.
+
+```{r logical, eval=FALSE}
+  knowsHowInf <- is.na(datCSV$p.knowsHowInf.r1)
+  str(knowsHowInf)
+  knowsHowInf[1:20]
+  # [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE
+  #[15]  TRUE FALSE  TRUE FALSE FALSE FALSE
+```
+
+## Two-way contingenecy tables
+
+One of the first things to always inspect are frequencies. Do your N's make sense? What about when you cross two key categorical variables?
+
+```{r contingency, eval=FALSE}
+  tblKnow_posByHow <- table(datCSV$p.knowsHIV.r1,
+                            datCSV$p.knowsHowInf.r1, 
+                            useNA="always", 
+                            dnn=c("knows HIV+", 
+                                  "knows how infected"))
+  tblKnow_posByHow
+  
+  margin.table(tblKnow_posByHow, 1) # row total
+  margin.table(tblKnow_posByHow, 2) # column total
+```
+
+## Table of proportions
+
+```{r proportions, eval=FALSE}
+  prop.table(tblKnow_posByHow) # cell frequencies
+  prop.table(tblKnow_posByHow, 1) # row percentages
+  prop.table(tblKnow_posByHow, 2) # column percentages
+```
+
+## Quick plots
+
+We'll learn how to create awesome plots, but not today. When you are inspecting your data, R's base plots are quick, easy, and sufficient.
+
+```{r plots, eval=FALSE}
+  boxplot(datCSV$p.age.r1)
+  hist(datCSV$p.age.r1)
+```
+
+## Next Up: Pipes!
+
+Select, filter, arrange, mutate, summarise

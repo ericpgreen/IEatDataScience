@@ -9,6 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+  library(knitr)
   knitr::opts_chunk$set(echo = TRUE)
   opts_knit$set(root.dir=normalizePath('../'))
 ```
@@ -54,9 +55,16 @@ Last week you downloaded data into the `input` folder. We made a few changes to 
 ```
 
 ```{r loadURL}
+# a quick trick to check for the RCurl package and install if missing
+  list.of.packages <- c("RCurl")
+  new.packages <- list.of.packages[!(list.of.packages %in%
+                                     installed.packages()[,"Package"])]
+  if(length(new.packages)) install.packages(new.packages)
+  
   library(RCurl)
   url <- getURL('https://docs.google.com/spreadsheets/d/e/2PACX-1vQLJfY4Hk0Uek5lLBxXrowCp-7XMP1_5Vze6grhUd5u_XcIlMzTkpwBG3sq0aZuzduNbpiv1oqPyd1w/pub?gid=1835311741&single=true&output=csv', 
                 ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+  datURL <- read.csv(textConnection(url), header=T)
 ```
 
 ```{r loadJSON}
@@ -78,7 +86,13 @@ Last week you downloaded data into the `input` folder. We made a few changes to 
 The `datCSV` data frame has ... observations (rows) and ... columns.
 
 ```{r glimpse}
-
+# a quick trick to check for the tidyverse package and install if missing
+  list.of.packages <- c("tidyverse")
+  new.packages <- list.of.packages[!(list.of.packages %in%
+                                     installed.packages()[,"Package"])]
+  if(length(new.packages)) install.packages(new.packages)
+  library(tidyverse)
+  
 ```
 
 
@@ -86,7 +100,37 @@ The `datCSV` data frame has ... observations (rows) and ... columns.
 
 ```
 
+```{r summary}
 
-```{r kable}
+# what is the mean parent age (p.age.r1)?
+```
 
+```{r table}
+
+# how many kids know how they were infected?
+```
+
+```{r missing}
+
+# how many cases are missing data?
+```
+
+```{r logical}
+
+# can you make a vector of parent age
+```
+
+```{r contingenecy}
+
+# does the NA pattern make sense?
+```
+
+```{r proportions}
+  
+# what proportion of kids who know they are HIV postive also know
+# how they were infected?
+```
+
+```{r plots}
+  
 ```
