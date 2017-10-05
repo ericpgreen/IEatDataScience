@@ -180,7 +180,7 @@ R has several data types. `datCSV` is a **data frame** that consists of 372 rows
 
 > The `datCSV` data frame has ... observations (rows) and ... columns.
 
-Replace the first `...` with \``nrow(datCSV)`\` for the number of rows, and replace the second `...` with \``length(datCSV)`\` for the number of columns. Then knit your document.
+Replace the first `...` with \``r nrow(datCSV)`\` for the number of rows, and replace the second `...` with \``r length(datCSV)`\` for the number of columns. Then knit your document.
 
 ## Glimpse
 
