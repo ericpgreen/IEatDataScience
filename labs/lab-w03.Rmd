@@ -20,7 +20,7 @@ output:
 
 Last week you downloaded data into the `input` folder. We made a few changes to the data, so run this chunk again by pressing play. It will overwrite your existing files. You'll notice that the chunk is set to `eval=FALSE` so R will not download the data every time you knit the file.
 
-```{r download, evel=FALSE, warning=FALSE, message=FALSE}
+```{r download, eval=FALSE, warning=FALSE, message=FALSE}
   download.file("https://www.dropbox.com/s/k4d2j6feayezkun/r2d2.csv?dl=1", 
                 destfile = "input/r2d2-w02.csv")
   download.file("https://www.dropbox.com/s/1e2tqqmfzmzaybe/r2d2.dta?dl=1", 
