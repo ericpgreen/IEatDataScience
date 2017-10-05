@@ -205,7 +205,7 @@ You can also use the functions `head()` or `tail()` to examine the first or last
 
 ```{r head, eval=FALSE}
   head(datCSV)
-  tail(csv)
+  tail(datCSV)
 ```
 
 ## Quick exploration
