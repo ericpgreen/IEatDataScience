@@ -11,7 +11,9 @@ output:
 
 By the end of this session, you should be able to:
 
-* 
+* Import raw data
+* Transform your data using the `dplyr` package, a member of the tidyverse
+* Create a cool plot 
 
 <br>
 

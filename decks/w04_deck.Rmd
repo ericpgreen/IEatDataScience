@@ -11,21 +11,35 @@ output:
       slideNumber: true
 ---
 
-## {data-background="w03-cover.jpg"}
+## {data-background="w04-cover.jpg"}
 
 <style type="text/css">
 p { text-align: left; }
 </style>
 
+## You are here
+
+<center>
+<img src="../img/workflow.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
 ## Objectives 
 
 By the end of this session, you should be able to:
 
-* Import data from CSV, RDS, Stata, SAS, SPSS, URLs, and APIs
-* Inspect R objects
-* Conduct initial data checks 
+* Import raw data
+* Transform your data using the `dplyr` package, a member of the tidyverse
+* Create this plot...
 
-## <span style="color:red">Two steps forward, one step back</span> {data-background-image="https://media.giphy.com/media/3oEduZ9znjJjORaZW0/giphy.gif"}
+## Create this plot
+
+<center>
+<img src="../img/csum.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## {data-background-iframe="https://docs.google.com/presentation/d/e/2PACX-1vSFK2JJs9RvbNov-HOvAvcfGjV_9GNJnLtC2J2Or1R5LEY7Z4WL4oOfmIS9misHHeKIyM6Kh1PvSMqi/embed?start=false&loop=false&delayms=60000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"}
+
+## <span style="color:red">Tidy up!</span> {data-background-image="https://media.giphy.com/media/HIrYP4RI9DpLy/giphy.gif"}
 
 ## Login to Duke's Docker-ized version of RStudio Server
 
@@ -44,253 +58,340 @@ Is your project still open? If not, click on the project icon to load it. (Don't
 
 ## Download and open the template
 
-Change `products` to your preferred subfolder.
+Run the following code in your console. Change `products` to your preferred subfolder.
 
 ```{r, eval=FALSE}
-  download.file("https://tinyurl.com/yarmjp8w", 
-                destfile = "products/lab-w03.Rmd")
+  download.file("https://tinyurl.com/y9ze2grp", 
+                destfile = "products/lab-w04.Rmd")
 ```
 
-## Import CSV
+## Optional: Change your layout
 
-A csv file is an ideal format for sharing data. Simple. Lightweight. Readable by any program. Import with the `read.csv()` function. Start by running `?read.csv` in the console to view the help file.
+`Tools > Global Options`
 
 <center>
-<img src="../img/readcsv.png" style="background:none; border:none; box-shadow:none;">
+<img src="../img/windows.png" style="background:none; border:none; box-shadow:none;">
 </center>
 
-## ? Help File
+## Download and import the data
 
-`?read.csv`: What arguments are required?
+Run the `download` code chunk to get the data, and then write a line of code in the `loadCSV` chunk to import the data to your environment and assign it to an object called `dat`.
 
-<center>
-<img src="../img/readcsv_ann.png" style="background:none; border:none; box-shadow:none;">
-</center>
+## Inspect dat
 
-## Import CSV
-
-Now import the csv file:
-
-```{r loadCSV, eval=FALSE}
-  datCSV <- read.csv("input/r2d2-w02.csv", stringsAsFactors = FALSE)
-```
-
-This will create an object called `datCSV`.
-
-## {data-background-iframe="http://adv-r.had.co.nz/Style.html"}
-
-## What's in a name
-
-You can name this object anything you want. The most important thing is to be consistent. Here's Hadley's advice:
-
-* Create meaningul names, not `foo` or `Eric2`
-* Variable and function names should be lowercase
-* Use an underscore (_) to separate words within a name 
-* Variable names should be nouns and function names should be verbs
-* camelCase is an option and can be used with _, as in `datWave1_wide`
-
-## RDS
-
-Any R object can be saved as an RDS file, so you might need to import from RDS on occassion:
-
-```{r loadRDS, eval=FALSE}
-  datRDS <- readRDS("input/r2d2-w02.rds")
-```
-
-## Import from other stats programs
-
-Maybe a collaborator works in Stata, SAS, or (gasp!) SPSS and wants to make the jump to R. No problem, just load the `haven` package:
-
-```{r loadSTAT, eval=FALSE}
-# install.packages("haven") # probably need to install this first
-  library(haven)
-  datDTA <- read_dta("input/r2d2-w02.dta")
-  datSAS <- read_sas("input/r2d2-w02.sas7bdat")
-  datSPSS <- read_sav("input/r2d2-w02.sav")
-```
-
-## Import from Excel
-
-Or maybe you have descended into the 6th circle of hell (heresy) and you are given data stored in Excel files. You can manually convert to CSV files and import, or you can use the `readxl` package that is part of the `tidyverse`.
-
-```{r loadXLSX, eval=FALSE}
-  library(readxl)
-  excel_sheets("input/r2d2-w02.xlsx")  # list sheets
-  datXLSX <- read_excel("input/r2d2-w02.xlsx", sheet="data")
-```
-
-## Import flat files from the Web
-
-You can use the `RCurl` package to grab data from the web. This link goes to a csv published on Google Drive.
-
-```{r loadURL, eval=FALSE}
-  library(RCurl)
-  url <- getURL('https://docs.google.com/spreadsheets/d/e/2PACX-1vQLJfY4Hk0Uek5lLBxXrowCp-7XMP1_5Vze6grhUd5u_XcIlMzTkpwBG3sq0aZuzduNbpiv1oqPyd1w/pub?gid=1835311741&single=true&output=csv', 
-                ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
-  datURL <- read.csv(textConnection(url), header=T)
-```
-
-(Check out the [`googlesheets` package](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html) if you want to read and write from YOUR Google Sheets account.)
-
-## Import data from APIs
-
-```{r loadJSON}
-  source("https://tinyurl.com/y74jnzsc") # authentication code
-  twitter_user <- "realDonaldTrump"
-  url <- paste0("https://api.twitter.com/1.1/statuses/user_timeline.json?",
-                "count=10&",
-                "screen_name=", twitter_user)
-  req <- httr::GET(url, httr::add_headers(Authorization = token))
-  json <- httr::content(req, as = "text")
-  tweets <- fromJSON(json)
-  substring(tweets$text, 1, 100)
-```
-
-## Connect to Databases
-
-RStudio makes it easy to connect to a wide range of databases, query/analyze the data inside the database, and only import what you need into R. 
-
-<center>
-<img src="../img/w03-database.png" style="background:none; border:none; box-shadow:none;">
-</center>
-
-See [RStudio](https://db.rstudio.com/) for more details.
-
-## Check out your data frames
-
-If successful, you should see 7 `dat` dataframes in your environment. We'll focus on `datCSV` moving forward.
-
-<center>
-<img src="../img/w03-dataframes.png" style="background:none; border:none; box-shadow:none;">
-</center>
-
-## Inspect the object
-
-```{r str, eval=FALSE}
-  str(datCSV)
-```
-
-<center>
-<img src="../img/str_datCSV.png" style="background:none; border:none; box-shadow:none;">
-</center>
-
-## Data frame {data-background=#f4c842}
-
-R has several data types. `datCSV` is a **data frame** that consists of 372 rows and 12 variables. Let's use two built-in functions to do this count and print the results in line. Go to where you see the following line:
-
-> The `datCSV` data frame has ... observations (rows) and ... columns.
-
-Replace the first `...` with \``r nrow(datCSV)`\` for the number of rows, and replace the second `...` with \``r length(datCSV)`\` for the number of columns. Then knit your document.
-
-## Glimpse
-
-We can also examine `datCSV` with the `glimpse()` function in the `dplyr` package, which is included in the `tidyverse`. 
+Load the `tidyverse` package and take a quick glimpse at the data. Try `glimpse()`, then turn `dat` into a tibble.
 
 ```{r glimpse, eval=FALSE}
-  library(tidyverse)
-  glimpse(datCSV)
+  dat <- as.tibble(dat)
 ```
 
-## Hide output {data-background=#f4c842}
+## 5 key functions
 
-Knit the file and you'll see that the glimpse results print. Replace `{r glimpse}` with `{r glimpse, results='hide'}` and knit again.
+function      purpose
+--------      --------
+`filter()`    Pick observations by their values
+`arrange()`   Reorder the rows
+`select()`    Pick variables by their names
+`mutate()`    Create new variables
+`summarise()` Create summaries
 
-## Stop code from printing {data-background=#f4c842}
+(http://r4ds.had.co.nz/transform.html)
 
-To turn off code printing, replace `{r glimpse, results='hide'}` with `{r glimpse, results='hide', echo=FALSE}` and knit again.
+## Filter
 
-## Head/Tail
+`filter()` lets you subset based on row values. Just give it a data frame and one or more conditions.
 
-You can also use the functions `head()` or `tail()` to examine the first or last few rows.
-
-```{r head, eval=FALSE}
-  head(datCSV)
-  tail(datCSV)
+```{r, eval=FALSE}
+  filter(dat, c.age.r1 < 13) # younger than 13
+  filter(dat, c.age.r1 >= 11 & c.age.r1 <= 13) # between 11 and 13
+  filter(dat, c.female.r1 != 0) # exclude males coded as 0's
+  filter(dat, c.female.r1 == 1) # include females coded as 1's
+  filter(dat, c.age.r1 < 13, c.female.r1 == 1) # females younger than 13
+  filter(dat, (c.female.r1 == 1 & c.age.r1 < 11) | # females younger than 11
+              (c.female.r1 == 0 & c.age.r1 > 12)) # OR males older than 12
 ```
 
-## Quick exploration
+Logical operators and (`&`), or (`|`), not (`!`), equals (`==`). How many observations do we have of female caregivers (`p.female.r1`) and female children (`c.female.r1`)?
 
-One option for a quick summary of the dataframe is:
+## Arrange
 
-```{r summary, eval=FALSE}
-  summary(datCSV)
+`arrange()` sorts your dataframe according to one or more conditions.
+
+```{r arrange, eval=FALSE}
+  arrange(dat, p.female.r1, p.age.r1) # both ascending
+  arrange(dat, p.female.r1, desc(p.age.r1)) # descending age
 ```
 
-But this can be unweildly when your dataframe is big.
+Try arranging by child age and then gender. Note how the order matters.
 
-## Start by looking for problems
+## Select
 
-* Do any variables have values that are smaller or larger than you thought possible? See `min` and `max` of `summary()` output or run `min(datCSV$p.age.r1, na.rm=TRUE)` or `max(datCSV$p.age.r1, na.rm=TRUE)`.
-* Are any variables missing more data than you would have expected? 
+`select()` lets you grab just a subset of columns from your data frame.
 
-```{r table, eval=FALSE}
-  names(datCSV)
-  table(datCSV$p.knowsHowInf.r1, useNA="always")
+```{r select, eval=FALSE}
+  select(dat, p.female.r1, c.female.r1)
+  select(dat, starts_with("p.")) # grab all p. columns
+  select(dat, ends_with(".r1")) # grab all .r1 columns
+  select(dat, contains("age")) # grab all age columns
 ```
 
-`names(datCSV)` is a quick way to get the names of all variables (columns) in a dataframe.
+Get all of the "knows" variables.
 
-## Introduction to $
+## Mutate
 
-* `datCSV` tells R to do something with the `datCSV` dataframe
-* `datCSV` followed by the `$` lets you access specific columns; RStudio will prompt you with column names as soon as you type `$` after the name of a dataframe
+`mutate()` creates new columns. In this example, we first create a smaller data frame called `temp` to make it easier to see the new variable `ageDifference` that we create in the second step.
 
-## Introduction to NA
-
-* NA means missing data in R
-* A common trap in analysis is not understanding how the function you are using handles NAs by default
-
-```{r missing, eval=FALSE}
-  is.na(datCSV$p.knowsHowInf.r1) # gives a logical T/F if values is missing
-  sum(is.na(datCSV$p.knowsHowInf.r1)) # another way to count NA
-  any(is.na(datCSV$p.knowsHowInf.r1)) # tests if there are any NAs
+```{r mutate, eval=FALSE}
+  temp <- select(dat, contains("age"), c.female.r1) # females + all age columns
+  mutate(temp, ageDiff = p.age.r1 - c.age.r1, # parent age - kid age
+               ageDiffLog = log(ageDiff), # log of age difference
+               age50 = ifelse(p.age.r1 >=50, 1, 0)) # 1 if diff at least 50yrs
 ```
 
-## Vectors
+Add a step to mutate that creates a variable in `temp` called `ageDiff50` that equals `1` if the age difference between kids and caregivers is at least 50 years.
 
-With `is.na(datCSV$p.knowsHowInf.r1)` we see a second data type: vectors. This vector stores data of the logical class.
+## Summarise
 
-```{r logical, eval=FALSE}
-  knowsHowInf <- is.na(datCSV$p.knowsHowInf.r1)
-  str(knowsHowInf)
-  knowsHowInf[1:20]
-  # [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE
-  #[15]  TRUE FALSE  TRUE FALSE FALSE FALSE
+`summarise()` collapses the data to summary values. It can be used with the `group_by` function to summari(z)e by group.
+
+```{r summarise, eval=FALSE}
+  summarise(temp, c.ageM = mean(c.age.r1)) # mean of child age
+  by_gender <- group_by(temp, c.female.r1) # group by child age
+  summarise(by_gender, c.ageM = mean(c.age.r1))
 ```
 
-## Two-way contingenecy tables
+## <span style="color:red">Pipes!</span> {data-background-image="https://media.giphy.com/media/3o6Mb8Tdiy6P0QRQIM/giphy.gif"}
 
-One of the first things to always inspect are frequencies. Do your N's make sense? What about when you cross two key categorical variables?
+## The Pipe
 
-```{r contingency, eval=FALSE}
-  tblKnow_posByHow <- table(datCSV$p.knowsHIV.r1,
-                            datCSV$p.knowsHowInf.r1, 
-                            useNA="always", 
-                            dnn=c("knows HIV+", 
-                                  "knows how infected"))
-  tblKnow_posByHow
-  
-  margin.table(tblKnow_posByHow, 1) # row total
-  margin.table(tblKnow_posByHow, 2) # column total
+`%>%`
+
+We can "pipe" together multiple steps without having to make intermediate objects like `temp`.
+
+```{r pipes, eval=FALSE}
+# meanAge <-   # optional to assign result to some object 
+  dat %>% 
+    select(contains("age"), c.female.r1) %>%
+    mutate(ageDiff = p.age.r1 - c.age.r1) %>%
+    group_by(c.female.r1) %>%
+    summarise(c.ageM = mean(c.age.r1))
 ```
 
-## Table of proportions
+Create a pipe that calculates the mean age difference between parents and kids by parent gender.
 
-```{r proportions, eval=FALSE}
-  prop.table(tblKnow_posByHow) # cell frequencies
-  prop.table(tblKnow_posByHow, 1) # row percentages
-  prop.table(tblKnow_posByHow, 2) # column percentages
+## Our Objective
+
+<center>
+<img src="../img/csum.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Data dictionary
+
+To make this plot, we need 4 sets of variables that assess what the child knows and when he/she learned
+
+<center>
+<img src="../img/dd.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Construct new variables: Full disclosure
+
+The first variable to construct is an indicator of whether we should classify the child as meeting criteria for full disclosure. We use the `case_when()` function and a few logical operators to create this new variable `p.fullDisclosure.r1`.
+
+```{r fullDisclosure, eval=FALSE}
+  temp2 <- 
+  mutate(dat,
+         p.fullDisclosure.r1 = case_when(
+            doesKnow16.r1=="yes, child knows" &
+            doesKnow20.r1=="yes, child knows" &
+            doesKnow24.r1=="yes, child knows" ~ 1, 
+            TRUE ~ 0
+            )
+         )
+  temp2$p.fullDisclosure.r1
 ```
 
-## Quick plots
+(We create `temp2` just to make it easy to see the result.)
 
-We'll learn how to create awesome plots, but not today. When you are inspecting your data, R's base plots are quick, easy, and sufficient.
+## Construct new variables: Age at full disclosure
 
-```{r plots, eval=FALSE}
-  boxplot(datCSV$p.age.r1)
-  hist(datCSV$p.age.r1)
+```{r ageFull, eval=FALSE}
+  temp2 <- 
+  mutate(temp2,
+         ageFull = pmax(doesKnow23.r1, doesKnow27.r1, na.rm=T)
+         ) %>%
+  mutate(ageFull = ifelse(p.fullDisclosure.r1==1, ageFull, NA)
+  )
+  temp2$ageFull
 ```
 
-## Next Up: Pipes!
+(We create `temp2` just to make it easy to see the result.)
 
-Select, filter, arrange, mutate, summarise
+## Pipe It!
+
+```{r allTogetherNow, eval=FALSE}
+dat <- 
+  dat %>%
+  # create indicator for full disclosure
+  mutate(
+    p.fullDisclosure.r1 = case_when(
+      doesKnow16.r1=="yes, child knows" &
+        doesKnow20.r1=="yes, child knows" &
+        doesKnow24.r1=="yes, child knows" ~ 1, 
+      TRUE ~ 0
+    )
+  ) %>%
+  # get age of full disclosure
+  mutate(
+    ageFull = pmax(doesKnow23.r1, doesKnow27.r1, na.rm=T)
+  ) %>%
+  mutate(
+    ageFull = ifelse(p.fullDisclosure.r1==1, ageFull, NA)
+  )
+```
+
+## Now plot it!
+
+```{r, eval=FALSE}
+dat %>%
+# select a subset of variables
+  select(doesKnow15.r1, doesKnow19.r1,
+         doesKnow23.r1, doesKnow27.r1,
+         ageFull, c.age.r1) %>%
+# transform the data from wide to long
+  melt(., id="c.age.r1") %>%
+  group_by(variable, value) %>%
+  summarise(count=n()) %>% # summarise first to get count by age
+  group_by(variable) %>% #
+  mutate(all=sum(count),
+         count=as.numeric(count), # this is so that it goes in numeric order
+         value=as.numeric(value)) %>%
+  filter(!is.na(value)) %>%
+  arrange(variable, value) %>%
+  group_by(variable) %>%
+  mutate(csum=cumsum(count),
+         pct=(csum/all)*100) %>%
+  mutate(label=ifelse(variable=="doesKnow15.r1", "Chronic Condition",
+                      ifelse(variable=="doesKnow19.r1", "HIV Status",
+                      ifelse(variable=="doesKnow23.r1", "How Infected",
+                      ifelse(variable=="doesKnow27.r1", "Can Spread",
+                      ifelse(variable=="ageFull", "Full Disclosure", 
+                             "WTF")))))
+         ) %>%
+  data.frame(.) %>% # before you can rbind, you need to data.frame(.) it 
+  rbind(., zeroDat) %>% 
+  mutate(label=ifelse(value==15, label, "")) %>%
+  mutate(hiv=ifelse(variable=="doesKnow19.r1", "hiv", "not")) %>%
+    
+# start plot, wrap it in braces 
+  {
+   ggplot(., aes(x=as.factor(value), y=as.numeric(pct), 
+                 color=variable, group=variable, label=label, 
+                 linetype=variable, size=hiv)) +
+      geom_line() +
+      scale_size_manual(values=c(2,1)) +
+      ylim(0,100) +
+      labs(x="Age", y="Percent (%)") +
+      theme_minimal() +
+      geom_hline(yintercept=50, linetype="dotted") +
+      theme(legend.title=element_blank()) +
+      geom_text(data=filter(., value==15), 
+                aes(x=as.factor(value), y=as.numeric(pct), label=label),
+                vjust=c(rep(-1, 4), 4), hjust=1, size=4) +
+      scale_color_manual(values=c("black", rep("black", 4))) +
+      scale_linetype_manual(values=c("dashed", "solid", "solid",
+                                     "solid", "solid"), name="") +
+      guides(color=FALSE) +
+      guides(linetype=FALSE) +
+      guides(size=FALSE) +
+      theme(panel.grid.major=element_blank(),
+            panel.grid.minor=element_blank()) +
+      theme(legend.position = "bottom")
+  }
+```
+
+## Transform from wide to long
+
+Highlight and run from the start through the `melt()` line, but don't include the pipe operator. 
+
+```{r, eval=FALSE}
+dat %>%
+  select(doesKnow15.r1, doesKnow19.r1,
+         doesKnow23.r1, doesKnow27.r1,
+         ageFull, c.age.r1) %>%
+  melt(., id="c.age.r1")
+```
+
+<center>
+<img src="../img/melt.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Get counts by age and variable
+
+```{r, eval=FALSE}
+  group_by(variable, value) %>%
+  summarise(count=n())
+```
+
+<center>
+<img src="../img/countby.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Add a count of all observations (372)
+
+```{r, eval=FALSE}
+  group_by(variable) %>% #
+  mutate(all=sum(count),
+         count=as.numeric(count), # this is so that it goes in numeric order
+         value=as.numeric(value))
+```
+
+<center>
+<img src="../img/all.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Drop NA, sort, and calculate cumulative counts
+
+```{r, eval=FALSE}
+  filter(!is.na(value)) %>%
+  arrange(variable, value) %>%
+  group_by(variable) %>%
+  mutate(csum=cumsum(count),
+         pct=(csum/all)*100)
+```
+
+<center>
+<img src="../img/cumulative.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Add variable labels
+
+```{r, eval=FALSE}
+  mutate(label=ifelse(variable=="doesKnow15.r1", "Chronic Condition",
+               ifelse(variable=="doesKnow19.r1", "HIV Status",
+               ifelse(variable=="doesKnow23.r1", "How Infected",
+               ifelse(variable=="doesKnow27.r1", "Can Spread",
+               ifelse(variable=="ageFull", "Full Disclosure", "WTF"))))))
+```
+
+<center>
+<img src="../img/label.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Sometimes you need a few hacks
+
+```{r, eval=FALSE}
+  data.frame(.) %>% # before you can rbind, you need to data.frame(.) it 
+  rbind(., zeroDat) %>% 
+  mutate(label=ifelse(value==15, label, "")) %>%
+  mutate(hiv=ifelse(variable=="doesKnow19.r1", "hiv", "not"))
+```
+
+## Voila
+
+<center>
+<img src="../img/csum.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+
+
+
