@@ -156,7 +156,7 @@ Add a step to mutate that creates a variable in `temp` called `ageDiff50` that e
 
 ```{r summarise, eval=FALSE}
   summarise(temp, c.ageM = mean(c.age.r1)) # mean of child age
-  by_gender <- group_by(temp, c.female.r1) # group by child age
+  by_gender <- group_by(temp, c.female.r1) # group by child gender
   summarise(by_gender, c.ageM = mean(c.age.r1))
 ```
 
