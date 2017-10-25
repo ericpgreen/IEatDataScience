@@ -78,6 +78,7 @@ By the end of this session, you should be able to:
 
 * Explain what makes data "tidy", and why messy data suck
 * Tidy data using the `tidyr` package, a member of the tidyverse
+* Make a participant characteristics table
 
 ## Login to Duke's Docker-ized version of RStudio Server
 
@@ -94,6 +95,15 @@ Is your project still open? If not, click on the project icon to load it. (Don't
 <img src="../img/project.png" style="background:none; border:none; box-shadow:none;">
 </center>
 
+## Download and open the template
+
+Run the following code in your console. Change `products` to your preferred subfolder.
+
+```{r, eval=FALSE}
+  download.file("https://tinyurl.com/y9ze2grp", 
+                destfile = "products/lab-w05.Rmd")
+```
+
 ## Optional: Change your layout
 
 `Tools > Global Options`
@@ -107,10 +117,6 @@ Is your project still open? If not, click on the project icon to load it. (Don't
 > Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table [@wickham2014] 
 
 Wickham also uses tidy as a verb meaning "to structure a dataset to facilitate analysis".
-
-## Load the `tidyverse` package
-
-We'll use functions from the `tidyr` and `dplyr` packages today, both of which are part of the tidyverse. So start by loading the `tidyverse` package.
 
 ## Messy Data 1: Column Headers Are Values
 
@@ -362,7 +368,7 @@ There are two types of missing data:
 
 ## Get the data
 
-If you completed the Week 4 tutorial, you should already have the data file you need for today. If not, run the following chunk to download the data:
+If you completed the Week 4 tutorial, you should already have the data file you need for today. If not, run the download chunk in your template:
 
 ```{r download, eval=FALSE, warning=FALSE, message=FALSE}
   download.file("https://www.dropbox.com/s/g8ufwky4npt26as/r2d2-w04.csv?dl=1", 
@@ -379,14 +385,14 @@ Use `dplyr` to get the mean of `c.age.r1` and `p.age.r1`.
 
 Use `dplyr` to get the mean of `c.age.r1` and `p.age.r1`.
 
-```{r}
+```{r mean}
   summarise(dat, c.age=mean(c.age.r1, na.rm=TRUE),
                  p.age=mean(p.age.r1, na.rm=TRUE))
 ```
 
 ## The same thing with a pipe!
 
-```{r}
+```{r mean_pipe}
   dat %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
               p.age=mean(p.age.r1, na.rm=TRUE))
@@ -400,7 +406,7 @@ The grouping variable is `p.knowsHIV.r1`.
 
 The grouping variable is `p.knowsHIV.r1` (use a pipe).
 
-```{r}
+```{r mean_by}
   dat %>%
     group_by(p.knowsHIV.r1) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
@@ -411,7 +417,7 @@ The grouping variable is `p.knowsHIV.r1` (use a pipe).
 
 ## Add other variables to your `summarize()` step
 
-```{r}
+```{r all_vars}
   dat %>%
     group_by(p.knowsHIV.r1) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
@@ -438,7 +444,7 @@ Hint: use `gather()`
 
 ## Make this tidy
 
-```{r}
+```{r gather}
   dat %>%
     group_by(p.knowsHIV.r1) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
