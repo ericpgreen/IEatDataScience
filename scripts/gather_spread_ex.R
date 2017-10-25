@@ -22,7 +22,7 @@ descTable <-
             Npct=paste0(as.numeric(n()), " (",
                         pct=round(n()/nrow(r2d2)*100, 1),
                         ")")) %>%
-  data.frame(.) %>%
+  #data.frame(.) %>%
   #melt(., id=c("p.knowsHIV.r1")) %>%
   gather("c.age", "p.age", "c.eduCompPri", "p.eduCompPri",
          "p.bio", "p.HIVpos", "Npct", key="variable", value="value") %>%
