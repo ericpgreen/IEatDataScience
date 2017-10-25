@@ -444,8 +444,8 @@ We want to compare participant characteristics by the disclosure status of the c
 ```{r indicator}
   dat %>%
     mutate(p.disclosed = case_when(
-              doesKnow16.r1=="yes, child knows" ~ 1, 
-              TRUE ~ 0
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
               )) %>%
   # only including here to show the new variable
     select(p.disclosed) %>% 
