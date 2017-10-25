@@ -16,6 +16,8 @@ navbar:
       href: w3.html
     - text: "Week 4"
       href: w4.html
+    - text: "Week 5"
+      href: w5.html
 output:
   html_document:
     theme: yeti

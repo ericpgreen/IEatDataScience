@@ -1,0 +1,163 @@
+---
+title: "IEDSFB Week 4"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+  library(knitr)
+  knitr::opts_chunk$set(echo = TRUE)
+  opts_knit$set(root.dir=normalizePath('../'))
+  library(tidyverse)
+```
+
+# Download data to your machine
+
+Run the following code chunk to get the data for today. Notice that the chunk is set to `eval=FALSE` so that R will not download the file over and over again when you knit.
+
+```{r download, eval=FALSE, warning=FALSE, message=FALSE}
+  download.file("https://www.dropbox.com/s/g8ufwky4npt26as/r2d2-w04.csv?dl=1", 
+                destfile = "input/r2d2-w04.csv")
+```
+
+# Import data into your environment
+
+Write a line of code to import this file into your environment. 
+
+```{r loadCSV}
+# hint
+# dat <- 
+
+
+```
+
+# Take a quick glimpse
+
+Load the `tidyverse` package and take a quick glimpse at the data. Try `glimpse()`, then turn `dat` into a tibble. 
+
+```{r glimpse}
+
+```
+
+# Filter
+
+How many observations do we have of female caregivers (`p.female.r1`) and female children (`c.female.r1`)?
+
+```{r filter}
+
+```
+
+# Arrange
+
+Try arranging by child age and then gender. Note how the order matters.
+
+```{r arrange}
+
+```
+
+# Select
+
+Get all of the knows variables.
+
+```{r select}
+
+```
+
+# Mutate
+
+Add a step to mutate that creates a variable in `temp` called `ageDiff50` that equals `1` if the age difference between kids and caregivers is at least 50 years.
+
+```{r mutate}
+
+```
+
+# Pipe
+
+Create a pipe that calculates the mean age difference between parents and kids by parent gender.
+
+```{r pipes}
+
+```
+
+# Construct New Disclosure Variables
+
+```{r fullDisclosure}
+
+```
+
+```{r ageFull}
+
+```
+
+```{r allTogetherNow}
+
+```
+
+# Run a script that is best to ignore for now
+
+```{r dontworry}
+  source("https://raw.githubusercontent.com/ericpgreen/IEatDataScience/master/scripts/csum.R")
+```
+
+## Build the plot here!
+
+```{r plot}
+dat %>%
+  select(doesKnow15.r1, doesKnow19.r1,
+         doesKnow23.r1, doesKnow27.r1,
+         ageFull, c.age.r1) %>%
+  melt(., id="c.age.r1") %>%
+  group_by(variable, value) %>%
+  summarise(count=n()) %>% # summarise first to get count by age
+  group_by(variable) %>% #
+  mutate(all=sum(count),
+         count=as.numeric(count), # this is so that it goes in numeric order
+         value=as.numeric(value)) %>%
+  filter(!is.na(value)) %>%
+  arrange(variable, value) %>%
+  group_by(variable) %>%
+  mutate(csum=cumsum(count),
+         pct=(csum/all)*100) %>%
+  mutate(label=ifelse(variable=="doesKnow15.r1", "Chronic Condition",
+                      ifelse(variable=="doesKnow19.r1", "HIV Status",
+                      ifelse(variable=="doesKnow23.r1", "How Infected",
+                      ifelse(variable=="doesKnow27.r1", "Can Spread",
+                      ifelse(variable=="ageFull", "Full Disclosure", 
+                             "WTF")))))
+         ) %>%
+  data.frame(.) %>% # before you can rbind, you need to data.frame(.) it 
+  rbind(., zeroDat) %>% 
+  mutate(label=ifelse(value==15, label, "")) %>%
+  mutate(hiv=ifelse(variable=="doesKnow19.r1", "hiv", "not")) %>%
+  
+  # start plot, wrap it in braces 
+  {
+    ggplot(., aes(x=as.factor(value), y=as.numeric(pct), 
+                  color=variable, group=variable, label=label, 
+                  linetype=variable, size=hiv)) +
+      geom_line() +
+      scale_size_manual(values=c(2,1)) +
+      ylim(0,100) +
+      labs(x="Age", y="Percent (%)") +
+      theme_minimal() +
+      geom_hline(yintercept=50, linetype="dotted") +
+      theme(legend.title=element_blank()) +
+      geom_text(data=filter(., value==15), 
+                aes(x=as.factor(value), y=as.numeric(pct), label=label),
+                vjust=c(rep(-1, 4), 4), hjust=1, size=4) +
+      scale_color_manual(values=c("black", rep("black", 4))) +
+      scale_linetype_manual(values=c("dashed", "solid", "solid",
+                                     "solid", "solid"), name="") +
+      guides(color=FALSE) +
+      guides(linetype=FALSE) +
+      guides(size=FALSE) +
+      theme(panel.grid.major=element_blank(),
+            panel.grid.minor=element_blank()) +
+      theme(legend.position = "bottom")
+  }
+```
+
