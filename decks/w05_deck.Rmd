@@ -447,7 +447,9 @@ We want to compare participant characteristics by the disclosure status of the c
               doesKnow16.r1=="yes, child knows" ~ 1, 
               TRUE ~ 0
               )) %>%
-  glimpse() # only including here to show the new variable
+  # only including here to show the new variable
+    select(p.disclosed) %>% 
+    glimpse() 
 ```
 
 ## Now summarize by disclosure status
@@ -579,7 +581,8 @@ What do we need to do?
               c.female=round(mean(c.female.r1, na.rm=TRUE)*100, 1),
               p.female=round(mean(p.female.r1, na.rm=TRUE)*100, 1)) %>%
     gather(., key="variable", value="value", -p.disclosed) %>%
-    spread(., key=p.disclosed, value=value)
+    spread(., key=p.disclosed, value=value) %>%
+    kable()
 ```
 
 
