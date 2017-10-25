@@ -11,12 +11,12 @@ output:
 
 By the end of this session, you should be able to:
 
-* Import raw data
-* Transform your data using the `dplyr` package, a member of the tidyverse
-* Create a cool plot 
+* Explain what makes data "tidy", and why messy data suck
+* Tidy data using the `tidyr` package, a member of the tidyverse
+* Make a participant characteristics table
 
 <br>
 
-<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w04_deck.html" style="border: none;"></iframe>
+<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w05_deck.html" style="border: none;"></iframe>
 
-Or follow along [here](decks/w04_deck.html). 
+Or follow along [here](decks/w05_deck.html). 

@@ -108,6 +108,10 @@ Is your project still open? If not, click on the project icon to load it. (Don't
 
 Wickham also uses tidy as a verb meaning "to structure a dataset to facilitate analysis".
 
+## Load the `tidyverse` package
+
+We'll use functions from the `tidyr` and `dplyr` packages today, both of which are part of the tidyverse. So start by loading the `tidyverse` package.
+
 ## Messy Data 1: Column Headers Are Values
 
 <center>
@@ -213,6 +217,15 @@ We gather values by a set of column names that define the `key`, which we name `
 
 ## `gather()`
 
+We get the same result excluding country with a `-` sign. Note that we've also removed the parameter names `key` and `value`. This is possible because the default for `gather()` expects you to specify key before value. See `?gather`.  
+
+```{r}
+  table4a %>%  # remember pipes?
+    gather("year", "cases", -country)
+```
+
+## `gather()`
+
 Try gathering `table4b` (also included with `tidyverse`) to create variables for year and population values (call it "population").
 
 ```{r}
@@ -290,8 +303,7 @@ Can also separate on a specific character position with the `sep` argument. For 
 
 ```{r}
   table3 %>% 
-    separate(col = rate, into = c("century", "year"), 
-             sep=2, convert = TRUE)
+    separate(col = year, into = c("century", "year"), sep=2)
 ```
 
 ## `unite()`
@@ -346,6 +358,147 @@ There are two types of missing data:
 ```{r}
   stocks %>% 
     complete(year, qtr)
+```
+
+## Get the data
+
+If you completed the Week 4 tutorial, you should already have the data file you need for today. If not, run the following chunk to download the data:
+
+```{r download, eval=FALSE, warning=FALSE, message=FALSE}
+  download.file("https://www.dropbox.com/s/g8ufwky4npt26as/r2d2-w04.csv?dl=1", 
+                destfile = "input/r2d2-w04.csv")
+```
+
+Once you have the data (a csv file), import it into R and assign to an object called `dat`.
+
+## Start with a simple summary
+
+Use `dplyr` to get the mean of `c.age.r1` and `p.age.r1`.
+
+## Start with a simple summary
+
+Use `dplyr` to get the mean of `c.age.r1` and `p.age.r1`.
+
+```{r}
+  summarise(dat, c.age=mean(c.age.r1, na.rm=TRUE),
+                 p.age=mean(p.age.r1, na.rm=TRUE))
+```
+
+## The same thing with a pipe!
+
+```{r}
+  dat %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE))
+```
+
+## Now summarize by disclosure status
+
+The grouping variable is `p.knowsHIV.r1`.
+
+## Now summarize by disclosure status
+
+The grouping variable is `p.knowsHIV.r1` (use a pipe).
+
+```{r}
+  dat %>%
+    group_by(p.knowsHIV.r1) %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE))
+```
+
+## Add other variables to your `summarize()` step
+
+## Add other variables to your `summarize()` step
+
+```{r}
+  dat %>%
+    group_by(p.knowsHIV.r1) %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE),
+              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
+              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
+              p.bio=mean(p.bio.r1, na.rm=TRUE),
+              c.female=mean(c.female.r1, na.rm=TRUE),
+              p.female=mean(p.female.r1, na.rm=TRUE))
+```
+
+## Check out your tibble
+
+* Is the data tidy?
+* Formatting aside, does this tibble resemble a table of participant characteristics you might see in an article?
+
+## Here's what we want
+
+What functions from `tidyr` can help us get there?
+
+## Make this tidy
+
+Hint: use `gather()`
+
+## Make this tidy
+
+```{r}
+  dat %>%
+    group_by(p.knowsHIV.r1) %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE),
+              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
+              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
+              p.bio=mean(p.bio.r1, na.rm=TRUE),
+              c.female=mean(c.female.r1, na.rm=TRUE),
+              p.female=mean(p.female.r1, na.rm=TRUE)) %>%
+    gather(., key="variable", value="value", -p.knowsHIV.r1)
+```
+
+## Are we there yet?
+
+```{r}
+  dat %>%
+    group_by(p.knowsHIV.r1) %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE),
+              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
+              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
+              p.bio=mean(p.bio.r1, na.rm=TRUE),
+              c.female=mean(c.female.r1, na.rm=TRUE),
+              p.female=mean(p.female.r1, na.rm=TRUE)) %>%
+    gather(., key="variable", value="value", -p.knowsHIV.r1)
+```
+
+## Use `spread()`
+
+```{r}
+  dat %>%
+    group_by(p.knowsHIV.r1) %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE),
+              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
+              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
+              p.bio=mean(p.bio.r1, na.rm=TRUE),
+              c.female=mean(c.female.r1, na.rm=TRUE),
+              p.female=mean(p.female.r1, na.rm=TRUE)) %>%
+    gather(., key="variable", value="value", -p.knowsHIV.r1) %>%
+    spread(., key=p.knowsHIV.r1, value=value)
+```
+
+## Make it a bit nicer
+
+```{r}
+  dat %>%
+    group_by(p.knowsHIV.r1) %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE),
+              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
+              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
+              p.bio=mean(p.bio.r1, na.rm=TRUE),
+              c.female=mean(c.female.r1, na.rm=TRUE),
+              p.female=mean(p.female.r1, na.rm=TRUE)) %>%
+    gather(., key="variable", value="value", -p.knowsHIV.r1) %>%
+    mutate(p.knowsHIV.r1 = ifelse(p.knowsHIV.r1==1, 
+                                  "disclosed", 
+                                  "non-disclosed")) %>%
+    spread(., key=p.knowsHIV.r1, value=value)
 ```
 
 ## References
