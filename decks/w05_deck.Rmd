@@ -36,6 +36,12 @@ references:
   URL: http://r4ds.had.co.nz/
 ---
 
+```{r setup, include=FALSE}
+  library(knitr)
+  knitr::opts_chunk$set(echo = TRUE)
+  opts_knit$set(root.dir=normalizePath('../'))
+```
+
 ## {data-background="w05-cover.jpg"}
 
 <style type="text/css">
@@ -100,7 +106,7 @@ Is your project still open? If not, click on the project icon to load it. (Don't
 Run the following code in your console. Change `products` to your preferred subfolder.
 
 ```{r, eval=FALSE}
-  download.file("https://tinyurl.com/y9ze2grp", 
+  download.file("https://tinyurl.com/y7tmv7uh", 
                 destfile = "products/lab-w05.Rmd")
 ```
 
@@ -366,24 +372,50 @@ There are two types of missing data:
     complete(year, qtr)
 ```
 
-## Get the data
+## Our objective
 
-If you completed the Week 4 tutorial, you should already have the data file you need for today. If not, run the download chunk in your template:
+Now we want to use the disclosure data from the first wave to create a participant characteristics table:
 
-```{r download, eval=FALSE, warning=FALSE, message=FALSE}
+```{r echo=FALSE}
+  library(kableExtra)
   download.file("https://www.dropbox.com/s/g8ufwky4npt26as/r2d2-w04.csv?dl=1", 
                 destfile = "input/r2d2-w04.csv")
+  dat <- read.csv("input/r2d2-w04.csv", stringsAsFactors = FALSE)
+  dat %>%
+      mutate(p.disclosed = case_when(
+                doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+                TRUE ~ "non-disclosed"
+                )) %>%
+      group_by(p.disclosed) %>%
+      summarise(c.age=round(mean(c.age.r1, na.rm=TRUE), 1),
+                p.age=round(mean(p.age.r1, na.rm=TRUE), 1),
+                c.female=round(mean(c.female.r1, na.rm=TRUE)*100, 1),
+                p.female=round(mean(p.female.r1, na.rm=TRUE)*100, 1)) %>%
+      gather(., key="variable", value="value", -p.disclosed) %>%
+      spread(., key=p.disclosed, value=value) %>%
+  kable()
 ```
+
+
+## Get the data
+
+If you completed the Week 4 tutorial, you should already have the data file you need for today. If not, run the download chunk in your template.
 
 Once you have the data (a csv file), import it into R and assign to an object called `dat`.
 
+## Import
+
+```{r loadCSV, eval=FALSE}
+  dat <- read.csv("input/r2d2-w04.csv", stringsAsFactors = FALSE)
+```
+
 ## Start with a simple summary
 
-Use `dplyr` to get the mean of `c.age.r1` and `p.age.r1`.
+Let's start by remembering how to summarize our data. Use the `dplyr` package to get the means of `c.age.r1` and `p.age.r1`. What functions can you use?
 
 ## Start with a simple summary
 
-Use `dplyr` to get the mean of `c.age.r1` and `p.age.r1`.
+You can use `summarise()` and `mean()` to get the means of `c.age.r1` and `p.age.r1`.
 
 ```{r mean}
   summarise(dat, c.age=mean(c.age.r1, na.rm=TRUE),
@@ -394,118 +426,162 @@ Use `dplyr` to get the mean of `c.age.r1` and `p.age.r1`.
 
 ```{r mean_pipe}
   dat %>%
+  # notice we omit the object name dat since piped
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
               p.age=mean(p.age.r1, na.rm=TRUE))
 ```
 
+## Create an indicator for knows status
+
+We want to compare participant characteristics by the disclosure status of the child at baseline. The relevant variable is `doesKnow16.r1`. What can you add before `summarise()` to create this indicator variable? Use `table()` to remind yourself how this variable was coded.
+
+```{r coded}
+  table(dat$doesKnow16.r1)
+```
+
+## Create an indicator for knows status
+
+```{r indicator}
+  dat %>%
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ 1, 
+              TRUE ~ 0
+              )) %>%
+  glimpse() # only including here to show the new variable
+```
+
 ## Now summarize by disclosure status
 
-The grouping variable is `p.knowsHIV.r1`.
+Add something after `mutate()` to prepare to summarize the data. 
 
 ## Now summarize by disclosure status
 
-The grouping variable is `p.knowsHIV.r1` (use a pipe).
+The `group_by()` function can be used with `summarise()` to tell R to perform the summary by disclosure status.
 
 ```{r mean_by}
   dat %>%
-    group_by(p.knowsHIV.r1) %>%
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
+              )) %>%
+    group_by(p.disclosed) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
               p.age=mean(p.age.r1, na.rm=TRUE))
 ```
 
-## Add other variables to your `summarize()` step
+## Add other variables to summarize
 
-## Add other variables to your `summarize()` step
+Use `names()` to remind yourself of the variables in `dat`. You can skip the "doesKnow" variables.
+
+```{r names}
+  names(dat)
+```
+
+
+## Add other variables to summarize
 
 ```{r all_vars}
   dat %>%
-    group_by(p.knowsHIV.r1) %>%
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
+              )) %>%
+    group_by(p.disclosed) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
               p.age=mean(p.age.r1, na.rm=TRUE),
-              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
-              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
-              p.bio=mean(p.bio.r1, na.rm=TRUE),
               c.female=mean(c.female.r1, na.rm=TRUE),
               p.female=mean(p.female.r1, na.rm=TRUE))
 ```
 
 ## Check out your tibble
 
-* Is the data tidy?
-* Formatting aside, does this tibble resemble a table of participant characteristics you might see in an article?
+Formatting aside, does this tibble resemble a table of participant characteristics you might see in an article?
 
-## Here's what we want
+```{r echo=FALSE}
+  dat %>%
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
+              )) %>%
+    group_by(p.disclosed) %>%
+    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
+              p.age=mean(p.age.r1, na.rm=TRUE),
+              c.female=mean(c.female.r1, na.rm=TRUE),
+              p.female=mean(p.female.r1, na.rm=TRUE))
+```
+
+## Not quite
 
 What functions from `tidyr` can help us get there?
 
-## Make this tidy
-
-Hint: use `gather()`
-
-## Make this tidy
+## Use `gather()`
 
 ```{r gather}
   dat %>%
-    group_by(p.knowsHIV.r1) %>%
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
+              )) %>%
+    group_by(p.disclosed) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
               p.age=mean(p.age.r1, na.rm=TRUE),
-              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
-              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
-              p.bio=mean(p.bio.r1, na.rm=TRUE),
               c.female=mean(c.female.r1, na.rm=TRUE),
               p.female=mean(p.female.r1, na.rm=TRUE)) %>%
-    gather(., key="variable", value="value", -p.knowsHIV.r1)
+    gather(., key="variable", value="value", -p.disclosed)
 ```
 
 ## Are we there yet?
 
-```{r}
+```{r, echo=FALSE}
   dat %>%
-    group_by(p.knowsHIV.r1) %>%
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
+              )) %>%
+    group_by(p.disclosed) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
               p.age=mean(p.age.r1, na.rm=TRUE),
-              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
-              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
-              p.bio=mean(p.bio.r1, na.rm=TRUE),
               c.female=mean(c.female.r1, na.rm=TRUE),
               p.female=mean(p.female.r1, na.rm=TRUE)) %>%
-    gather(., key="variable", value="value", -p.knowsHIV.r1)
+    gather(., key="variable", value="value", -p.disclosed)
 ```
+
+What do we need to do?
 
 ## Use `spread()`
 
-```{r}
+```{r spread}
   dat %>%
-    group_by(p.knowsHIV.r1) %>%
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
+              )) %>%
+    group_by(p.disclosed) %>%
     summarise(c.age=mean(c.age.r1, na.rm=TRUE),
               p.age=mean(p.age.r1, na.rm=TRUE),
-              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
-              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
-              p.bio=mean(p.bio.r1, na.rm=TRUE),
               c.female=mean(c.female.r1, na.rm=TRUE),
               p.female=mean(p.female.r1, na.rm=TRUE)) %>%
-    gather(., key="variable", value="value", -p.knowsHIV.r1) %>%
-    spread(., key=p.knowsHIV.r1, value=value)
+    gather(., key="variable", value="value", -p.disclosed) %>%
+    spread(., key=p.disclosed, value=value)
 ```
 
 ## Make it a bit nicer
 
-```{r}
+```{r nicer}
   dat %>%
-    group_by(p.knowsHIV.r1) %>%
-    summarise(c.age=mean(c.age.r1, na.rm=TRUE),
-              p.age=mean(p.age.r1, na.rm=TRUE),
-              p.eduCompPri=mean(p.eduCompPri.r1, na.rm=TRUE),
-              c.eduCompPri=mean(c.eduCompPri.r1, na.rm=TRUE),
-              p.bio=mean(p.bio.r1, na.rm=TRUE),
-              c.female=mean(c.female.r1, na.rm=TRUE),
-              p.female=mean(p.female.r1, na.rm=TRUE)) %>%
-    gather(., key="variable", value="value", -p.knowsHIV.r1) %>%
-    mutate(p.knowsHIV.r1 = ifelse(p.knowsHIV.r1==1, 
-                                  "disclosed", 
-                                  "non-disclosed")) %>%
-    spread(., key=p.knowsHIV.r1, value=value)
+    mutate(p.disclosed = case_when(
+              doesKnow16.r1=="yes, child knows" ~ "disclosed", 
+              TRUE ~ "non-disclosed"
+              )) %>%
+    group_by(p.disclosed) %>%
+    summarise(c.age=round(mean(c.age.r1, na.rm=TRUE), 1),
+              p.age=round(mean(p.age.r1, na.rm=TRUE), 1),
+              c.female=round(mean(c.female.r1, na.rm=TRUE)*100, 1),
+              p.female=round(mean(p.female.r1, na.rm=TRUE)*100, 1)) %>%
+    gather(., key="variable", value="value", -p.disclosed) %>%
+    spread(., key=p.disclosed, value=value)
 ```
+
 
 ## References
 

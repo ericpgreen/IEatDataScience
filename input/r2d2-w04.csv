@@ -1,0 +1,373 @@
+c.age.r1,c.female.r1,p.age.r1,p.female.r1,doesKnow12.r1,doesKnow15.r1,doesKnow16.r1,doesKnow19.r1,doesKnow20.r1,doesKnow23.r1,doesKnow24.r1,doesKnow27.r1
+10,1,77,1,"yes, child knows",6,"yes, child knows",6,"yes, child knows",7,"no, child does not know",NA
+11,1,36,0,"yes, child knows",7,"yes, child knows",7,"no, child does not know",NA,NA,NA
+10,0,39,1,"yes, child knows",6,"yes, child knows",8,"yes, child knows",9,"yes, child knows",8
+12,1,34,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+15,0,39,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13
+14,0,45,1,"yes, child knows",6,"yes, child knows",11,"no, child does not know",NA,"yes, child knows",12
+12,1,49,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9
+10,0,33,1,"yes, child knows",5,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8
+9,1,34,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+15,1,66,1,"yes, child knows",NA,NA,NA,NA,NA,NA,NA
+14,0,57,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+11,0,60,1,"yes, child knows",5,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+11,1,34,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+12,0,34,1,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+13,0,36,1,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+13,0,43,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+13,1,41,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,0,41,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+14,1,40,1,"yes, child knows",9,"yes, child knows",9,child might know or suspect,NA,"yes, child knows",10
+14,0,44,1,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA,"yes, child knows",14
+14,1,37,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA
+11,1,49,0,"yes, child knows",8,"yes, child knows",7,"yes, child knows",8,"yes, child knows",9
+9,0,47,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+14,0,51,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA
+10,1,43,1,"yes, child knows",5,"yes, child knows",6,"yes, child knows",7,child might know or suspect,NA
+9,1,40,0,"yes, child knows",6,"yes, child knows",9,"no, child does not know",NA,child might know or suspect,NA
+12,0,45,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",9,"yes, child knows",9
+12,0,32,1,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",NA,NA,NA
+11,0,43,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+15,1,58,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",14
+14,1,44,0,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+11,0,38,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+13,1,55,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+9,1,40,1,"yes, child knows",8,"yes, child knows",9,"no, child does not know",NA,child might know or suspect,NA
+10,0,53,1,"yes, child knows",8,"yes, child knows",8,"yes, child knows",10,"yes, child knows",10
+14,1,41,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",14,"yes, child knows",14
+11,0,45,0,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+11,0,46,1,"yes, child knows",7,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+11,1,52,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+13,1,36,1,"yes, child knows",10,"yes, child knows",10,child might know or suspect,NA,"yes, child knows",13
+12,0,69,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,1,42,1,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,1,45,1,"yes, child knows",7,"no, child does not know",NA,NA,NA,NA,NA
+14,1,38,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+12,0,41,0,"yes, child knows",9,child might know or suspect,NA,NA,NA,NA,NA
+13,1,44,1,"yes, child knows",8,"no, child does not know",NA,NA,NA,NA,NA
+15,0,51,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+12,1,65,1,child might know or suspect,NA,"yes, child knows",NA,NA,NA,NA,NA
+9,1,63,1,"yes, child knows",5,"no, child does not know",NA,NA,NA,NA,NA
+13,1,43,0,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+14,1,83,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA
+10,0,18,0,"yes, child knows",10,child might know or suspect,NA,NA,NA,NA,NA
+12,0,39,1,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA,NA,NA
+9,1,34,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",8,"yes, child knows",8
+13,1,60,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",NA
+14,1,41,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",14,"yes, child knows",14
+14,1,40,1,"yes, child knows",8,"yes, child knows",10,child might know or suspect,NA,"yes, child knows",10
+14,0,33,1,"yes, child knows",12,NA,NA,NA,NA,NA,NA
+11,1,37,1,"yes, child knows",5,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+11,0,54,1,"yes, child knows",9,child might know or suspect,NA,NA,NA,NA,NA
+13,1,47,0,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",NA
+10,1,59,0,"yes, child knows",7,"no, child does not know",NA,NA,NA,NA,NA
+13,0,52,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,0,44,0,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+13,0,49,1,"yes, child knows",9,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+13,0,50,1,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA,"no, child does not know",NA
+12,1,58,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,1,32,1,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA,"no, child does not know",NA
+14,1,43,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"yes, child knows",11
+13,1,47,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",NA
+13,1,27,1,"yes, child knows",12,"no, child does not know",NA,NA,NA,NA,NA
+13,1,72,1,child might know or suspect,NA,child might know or suspect,NA,NA,NA,NA,NA
+14,0,67,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA
+14,0,64,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",NA
+14,1,31,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",13,"yes, child knows",13
+13,1,57,0,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",13
+11,0,33,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+13,0,42,1,"yes, child knows",10,"yes, child knows",11,"yes, child knows",11,NA,NA
+14,1,59,1,"yes, child knows",8,"yes, child knows",10,"yes, child knows",13,"yes, child knows",14
+13,0,34,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA
+14,0,60,1,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+11,1,37,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,NA,NA
+9,0,52,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+12,0,44,1,"yes, child knows",10,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+11,0,33,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+11,0,44,1,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA,"yes, child knows",9
+14,1,42,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",14
+13,1,45,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",NA
+12,1,47,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+10,1,44,1,"yes, child knows",9,"yes, child knows",9,NA,NA,NA,NA
+11,0,43,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,child might know or suspect,NA
+13,1,48,1,"yes, child knows",9,child might know or suspect,NA,NA,NA,NA,NA
+11,0,18,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+9,1,33,1,"yes, child knows",NA,"yes, child knows",NA,NA,NA,NA,NA
+9,0,34,1,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8,"no, child does not know",NA
+13,0,52,1,"yes, child knows",11,"yes, child knows",12,child might know or suspect,NA,child might know or suspect,NA
+13,0,63,1,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,0,62,1,"yes, child knows",8,"yes, child knows",9,"yes, child knows",9,NA,NA
+11,1,67,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+11,0,54,0,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA
+14,1,46,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+12,1,75,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+11,1,64,1,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",NA,NA,NA
+15,0,47,1,"yes, child knows",9,"yes, child knows",NA,NA,NA,NA,NA
+12,1,56,1,"yes, child knows",7,"no, child does not know",NA,NA,NA,NA,NA
+10,1,37,1,"yes, child knows",5,child might know or suspect,NA,NA,NA,NA,NA
+15,0,19,1,"yes, child knows",14,"yes, child knows",14,"yes, child knows",14,"yes, child knows",14
+13,0,29,1,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA,"no, child does not know",NA
+10,0,40,0,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+11,1,63,1,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8,"yes, child knows",NA
+10,1,44,0,"yes, child knows",7,"yes, child knows",7,"yes, child knows",7,NA,NA
+11,0,36,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+13,1,70,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,child might know or suspect,NA
+13,0,69,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+9,0,39,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",7,"no, child does not know",NA
+9,1,37,1,"yes, child knows",5,"no, child does not know",NA,NA,NA,NA,NA
+10,0,60,1,"yes, child knows",5,"yes, child knows",8,"no, child does not know",NA,child might know or suspect,NA
+13,1,37,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA
+15,1,60,1,"yes, child knows",12,"yes, child knows",NA,"yes, child knows",12,"no, child does not know",NA
+12,0,32,1,"yes, child knows",8,"yes, child knows",10,"yes, child knows",11,"yes, child knows",12
+15,0,79,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,NA,NA
+12,0,35,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,NA,NA
+14,0,60,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+12,1,61,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+9,1,48,1,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+11,0,42,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",10
+12,0,70,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,1,46,1,"yes, child knows",10,child might know or suspect,NA,NA,NA,NA,NA
+11,0,66,0,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA
+12,0,45,0,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+15,1,38,1,"yes, child knows",15,"yes, child knows",15,"yes, child knows",15,"yes, child knows",15
+12,1,44,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"yes, child knows",11
+9,0,66,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,NA,NA
+11,0,22,0,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",NA
+11,0,46,1,"yes, child knows",7,"yes, child knows",10,child might know or suspect,NA,"yes, child knows",10
+11,0,55,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",11,"yes, child knows",11
+12,1,36,1,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+14,1,36,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"yes, child knows",12
+13,0,64,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+15,1,28,1,"yes, child knows",NA,NA,NA,NA,NA,NA,NA
+15,0,30,0,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9
+11,1,59,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+10,0,36,0,"yes, child knows",11,"yes, child knows",8,"yes, child knows",9,"yes, child knows",9
+13,1,25,1,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA,"no, child does not know",NA
+13,1,45,1,"yes, child knows",11,"yes, child knows",12,"yes, child knows",12,child might know or suspect,NA
+12,1,45,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+14,1,47,0,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",13
+11,0,36,1,"yes, child knows",5,"yes, child knows",7,"yes, child knows",7,child might know or suspect,NA
+9,1,40,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+11,1,32,1,child might know or suspect,NA,child might know or suspect,NA,NA,NA,NA,NA
+12,0,41,1,"yes, child knows",5,"no, child does not know",NA,NA,NA,NA,NA
+14,1,59,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",13,"yes, child knows",13
+10,1,36,1,"yes, child knows",8,"no, child does not know",NA,NA,NA,NA,NA
+14,1,58,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA
+10,1,55,0,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+14,0,49,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"yes, child knows",10
+9,1,38,1,"yes, child knows",7,"no, child does not know",NA,NA,NA,NA,NA
+13,1,59,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,NA,NA
+12,1,44,1,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",NA,"no, child does not know",NA
+14,0,39,1,"yes, child knows",12,"yes, child knows",12,NA,NA,NA,NA
+9,1,35,1,"yes, child knows",6,"yes, child knows",6,"yes, child knows",6,"yes, child knows",8
+9,1,66,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,0,45,0,"yes, child knows",9,child might know or suspect,NA,NA,NA,NA,NA
+10,0,75,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+11,0,48,1,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8
+11,0,46,1,"yes, child knows",7,"no, child does not know",NA,NA,NA,NA,NA
+14,1,48,0,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+13,1,32,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+10,0,35,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",7,NA,NA
+13,0,59,1,"yes, child knows",11,"yes, child knows",12,child might know or suspect,NA,child might know or suspect,NA
+10,1,62,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+14,0,67,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+12,1,57,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+13,0,56,1,"yes, child knows",10,child might know or suspect,NA,NA,NA,NA,NA
+12,1,59,1,"yes, child knows",13,NA,NA,NA,NA,NA,NA
+11,0,50,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"yes, child knows",11
+15,0,66,0,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",NA
+13,0,35,1,"yes, child knows",5,"yes, child knows",8,"yes, child knows",8,"yes, child knows",13
+15,0,39,0,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+13,0,42,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",12,"yes, child knows",13
+12,1,39,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+11,1,38,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",10,"yes, child knows",10
+10,0,46,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+9,1,34,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,0,57,1,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+12,1,44,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,child might know or suspect,NA
+10,0,53,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+14,0,47,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA
+15,1,84,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+13,0,39,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+15,0,43,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+13,1,64,1,"yes, child knows",7,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA
+13,1,53,1,"yes, child knows",10,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13
+14,0,64,1,"yes, child knows",9,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA
+11,1,49,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,1,35,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+11,0,43,1,"yes, child knows",8,"yes, child knows",8,child might know or suspect,NA,"no, child does not know",NA
+13,0,46,1,"yes, child knows",9,"yes, child knows",11,"yes, child knows",NA,"no, child does not know",NA
+13,0,56,1,"yes, child knows",10,"yes, child knows",NA,"yes, child knows",11,"yes, child knows",11
+13,1,56,1,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+9,1,36,1,"yes, child knows",8,"yes, child knows",8,"no, child does not know",NA,"no, child does not know",NA
+12,1,34,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",11
+10,1,52,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+11,0,65,1,"yes, child knows",9,child might know or suspect,NA,NA,NA,NA,NA
+15,0,42,1,"yes, child knows",13,child might know or suspect,NA,NA,NA,NA,NA
+13,0,38,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"yes, child knows",11
+9,1,64,1,child might know or suspect,NA,"no, child does not know",NA,NA,NA,NA,NA
+11,0,39,1,"yes, child knows",6,"yes, child knows",6,"yes, child knows",6,"yes, child knows",9
+14,1,64,1,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,1,62,1,"yes, child knows",5,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+11,0,56,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+11,1,64,1,"yes, child knows",8,"no, child does not know",NA,NA,NA,NA,NA
+14,0,62,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+11,0,35,0,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA,"no, child does not know",NA
+11,0,82,1,"yes, child knows",6,"yes, child knows",6,"yes, child knows",6,NA,NA
+11,0,37,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,0,55,0,"yes, child knows",9,NA,NA,NA,NA,NA,NA
+13,1,63,1,"yes, child knows",12,"no, child does not know",NA,NA,NA,NA,NA
+9,0,36,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+10,1,42,1,"yes, child knows",6,"yes, child knows",10,NA,NA,"no, child does not know",NA
+10,0,57,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+13,1,36,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA
+15,1,27,0,"yes, child knows",NA,"yes, child knows",NA,child might know or suspect,NA,"no, child does not know",NA
+13,0,51,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",7,"no, child does not know",NA
+14,1,75,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,child might know or suspect,NA
+15,0,48,0,"yes, child knows",14,"yes, child knows",14,"yes, child knows",14,child might know or suspect,NA
+11,1,52,1,"yes, child knows",7,"yes, child knows",10,"yes, child knows",10,child might know or suspect,NA
+14,1,42,1,"yes, child knows",8,"yes, child knows",13,"yes, child knows",14,"no, child does not know",NA
+15,1,60,1,"yes, child knows",14,"yes, child knows",14,"yes, child knows",14,"yes, child knows",14
+13,1,58,1,"yes, child knows",10,"yes, child knows",12,NA,NA,"no, child does not know",NA
+13,1,45,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+14,0,86,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+9,0,36,1,"yes, child knows",6,"yes, child knows",8,"no, child does not know",NA,"no, child does not know",NA
+10,0,43,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+15,1,47,1,"yes, child knows",9,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+10,1,72,0,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+9,1,47,0,"yes, child knows",8,"yes, child knows",8,"no, child does not know",NA,"no, child does not know",NA
+10,1,49,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA
+15,1,54,1,"yes, child knows",14,"yes, child knows",14,"yes, child knows",14,NA,NA
+10,0,50,1,"yes, child knows",6,"yes, child knows",9,"no, child does not know",NA,"yes, child knows",9
+12,0,60,1,"yes, child knows",9,"yes, child knows",9,child might know or suspect,NA,"yes, child knows",9
+10,1,34,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9
+12,1,46,0,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+12,1,50,1,"yes, child knows",NA,"yes, child knows",NA,"no, child does not know",NA,NA,NA
+9,1,56,1,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA,"no, child does not know",NA
+11,1,67,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+14,1,27,1,"yes, child knows",6,NA,NA,NA,NA,NA,NA
+13,1,39,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,NA,NA
+9,0,62,1,"yes, child knows",8,child might know or suspect,NA,NA,NA,NA,NA
+15,0,65,1,"yes, child knows",8,"yes, child knows",8,NA,NA,NA,NA
+13,1,34,1,"yes, child knows",13,"yes, child knows",13,child might know or suspect,NA,"yes, child knows",11
+15,1,45,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+9,1,38,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA
+10,1,40,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+9,0,48,1,"yes, child knows",8,"no, child does not know",NA,NA,NA,NA,NA
+14,0,46,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",8,"yes, child knows",14
+13,0,44,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+13,1,52,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"no, child does not know",NA
+12,1,37,1,"yes, child knows",10,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+11,1,73,1,"yes, child knows",11,child might know or suspect,NA,NA,NA,NA,NA
+15,1,51,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,1,49,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13,"yes, child knows",14
+12,1,54,0,"yes, child knows",8,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+9,1,42,1,"yes, child knows",10,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA
+10,0,55,1,"yes, child knows",9,"yes, child knows",9,NA,NA,"no, child does not know",NA
+13,1,29,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA
+13,1,54,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",12,"yes, child knows",12
+11,0,41,1,"yes, child knows",8,"yes, child knows",7,"yes, child knows",8,"yes, child knows",8
+11,1,40,1,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA,"yes, child knows",11
+15,0,78,1,"yes, child knows",14,"no, child does not know",NA,NA,NA,NA,NA
+9,0,66,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+13,0,42,1,"yes, child knows",13,NA,NA,NA,NA,NA,NA
+11,0,40,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+10,1,30,1,"yes, child knows",7,NA,NA,NA,NA,NA,NA
+13,0,35,0,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA,"no, child does not know",NA
+13,0,38,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+11,0,73,1,"yes, child knows",NA,child might know or suspect,NA,NA,NA,NA,NA
+12,0,29,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+12,0,35,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,NA,NA
+14,1,42,1,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8
+14,1,46,0,"yes, child knows",9,"yes, child knows",9,NA,NA,"yes, child knows",9
+11,0,45,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+10,1,32,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+9,1,36,1,"yes, child knows",8,NA,NA,NA,NA,NA,NA
+15,0,61,1,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+12,1,40,1,child might know or suspect,NA,child might know or suspect,NA,NA,NA,NA,NA
+12,1,44,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+12,0,69,1,"yes, child knows",NA,"yes, child knows",NA,NA,NA,NA,NA
+13,0,55,1,"yes, child knows",5,"yes, child knows",5,"yes, child knows",8,"yes, child knows",8
+13,1,38,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",9,"yes, child knows",NA
+14,0,20,1,child might know or suspect,NA,child might know or suspect,NA,NA,NA,NA,NA
+12,1,45,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+12,1,36,1,"yes, child knows",8,"yes, child knows",8,child might know or suspect,NA,child might know or suspect,NA
+11,1,33,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+13,0,67,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+10,1,62,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9
+13,0,52,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA
+14,0,43,1,"yes, child knows",10,child might know or suspect,NA,NA,NA,NA,NA
+11,0,37,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+13,1,35,0,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8,NA,NA
+10,0,23,0,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"no, child does not know",NA
+12,1,65,1,"yes, child knows",11,"yes, child knows",11,NA,NA,NA,NA
+10,1,44,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+13,1,79,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"no, child does not know",NA
+10,0,34,1,"yes, child knows",7,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA
+11,0,65,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+10,0,37,1,"yes, child knows",8,"yes, child knows",9,"yes, child knows",9,NA,NA
+11,1,73,1,"yes, child knows",NA,NA,NA,NA,NA,NA,NA
+15,0,59,1,"yes, child knows",5,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA
+13,0,57,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",7,"no, child does not know",NA
+11,1,67,1,"yes, child knows",5,"no, child does not know",NA,NA,NA,NA,NA
+15,0,48,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,child might know or suspect,NA
+10,1,38,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9
+11,0,29,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,1,61,1,"yes, child knows",NA,"yes, child knows",NA,NA,NA,NA,NA
+11,0,40,0,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+14,0,50,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",NA
+15,0,63,1,"yes, child knows",11,"yes, child knows",15,NA,NA,NA,NA
+9,1,48,1,"yes, child knows",7,"no, child does not know",NA,NA,NA,NA,NA
+15,1,59,1,"yes, child knows",NA,"yes, child knows",NA,child might know or suspect,NA,"yes, child knows",NA
+11,1,35,0,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+13,1,47,1,"yes, child knows",6,"yes, child knows",6,"yes, child knows",7,"yes, child knows",13
+10,0,65,1,"yes, child knows",7,"no, child does not know",NA,NA,NA,NA,NA
+12,0,42,1,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA,"yes, child knows",10
+13,1,43,1,"yes, child knows",8,"yes, child knows",8,"yes, child knows",8,NA,NA
+13,0,53,1,"yes, child knows",7,"yes, child knows",11,"yes, child knows",11,child might know or suspect,NA
+13,0,51,0,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+9,1,61,1,"yes, child knows",8,"no, child does not know",NA,NA,NA,NA,NA
+14,0,64,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA
+15,0,38,1,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA,"no, child does not know",NA
+14,0,55,1,"yes, child knows",NA,"yes, child knows",NA,"yes, child knows",13,"yes, child knows",13
+14,1,35,1,"yes, child knows",8,child might know or suspect,NA,NA,NA,NA,NA
+14,0,78,1,"yes, child knows",10,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+15,1,56,1,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11,"yes, child knows",11
+13,1,40,1,"yes, child knows",6,"yes, child knows",6,"yes, child knows",6,child might know or suspect,NA
+12,0,45,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",11,"yes, child knows",11
+10,0,49,0,"yes, child knows",7,"yes, child knows",8,"no, child does not know",NA,"yes, child knows",9
+15,1,66,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",14,"yes, child knows",13
+14,1,55,1,"yes, child knows",13,"yes, child knows",13,"yes, child knows",13,"no, child does not know",NA
+13,1,40,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+11,1,33,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"no, child does not know",NA
+12,1,53,1,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10,"yes, child knows",10
+10,1,41,1,"yes, child knows",NA,"yes, child knows",7,"yes, child knows",7,"no, child does not know",NA
+14,0,45,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+11,0,74,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",NA
+12,1,48,1,"yes, child knows",8,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+14,1,33,1,"yes, child knows",13,"yes, child knows",NA,"yes, child knows",13,"yes, child knows",13
+13,1,40,1,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+11,0,34,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA
+13,0,71,1,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+11,0,40,1,"yes, child knows",7,"yes, child knows",7,"yes, child knows",7,"no, child does not know",NA
+10,0,46,1,"yes, child knows",10,"no, child does not know",NA,NA,NA,NA,NA
+10,0,54,1,"yes, child knows",5,"yes, child knows",7,"yes, child knows",7,"yes, child knows",7
+14,0,48,0,"yes, child knows",7,"yes, child knows",7,"yes, child knows",10,"yes, child knows",10
+14,0,45,1,"no, child does not know",NA,"no, child does not know",NA,NA,NA,NA,NA
+14,0,65,1,child might know or suspect,NA,"no, child does not know",NA,NA,NA,NA,NA
+12,0,35,1,"yes, child knows",NA,NA,NA,NA,NA,NA,NA
+12,1,45,1,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+12,1,70,0,"yes, child knows",10,"yes, child knows",11,"no, child does not know",NA,"no, child does not know",NA
+14,0,34,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9
+12,0,57,1,"yes, child knows",5,"yes, child knows",7,"yes, child knows",7,"yes, child knows",9
+11,1,34,1,"yes, child knows",10,"yes, child knows",9,"yes, child knows",10,"yes, child knows",9
+12,0,42,1,"yes, child knows",9,"yes, child knows",9,"yes, child knows",9,"no, child does not know",NA
+9,1,37,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+12,0,31,1,"yes, child knows",9,"yes, child knows",10,"yes, child knows",11,"yes, child knows",11
+13,1,29,1,"yes, child knows",9,"no, child does not know",NA,NA,NA,NA,NA
+13,1,36,0,"yes, child knows",11,"no, child does not know",NA,NA,NA,NA,NA
+10,0,32,1,"yes, child knows",7,"yes, child knows",8,"no, child does not know",NA,"no, child does not know",NA
+14,0,30,1,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12,"yes, child knows",12
+12,0,44,0,"yes, child knows",NA,"no, child does not know",NA,NA,NA,NA,NA
+13,0,44,1,"yes, child knows",13,"no, child does not know",NA,NA,NA,NA,NA
+10,1,54,1,"yes, child knows",6,"no, child does not know",NA,NA,NA,NA,NA

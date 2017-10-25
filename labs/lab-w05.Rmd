@@ -89,7 +89,22 @@ Write a line of code to import this file into your environment.
 ```
 
 
+```{r coded}
+
+```
+
+
+```{r indicator}
+
+```
+
+
 ```{r mean_by}
+
+```
+
+
+```{r names}
 
 ```
 
