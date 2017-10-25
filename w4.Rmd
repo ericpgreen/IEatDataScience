@@ -1,5 +1,5 @@
 ---
-title: "Tidy Data!"
+title: "Data Transformation"
 output:
   html_document:
     toc: false
