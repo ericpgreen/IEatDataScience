@@ -271,7 +271,7 @@ It's simple. Just tell R the column to split and the columns to create:
 
 ```{r}
   table3 %>% 
-    separate(rate, into = c("cases", "population"))
+    separate(col = rate, into = c("cases", "population"))
 ```
 
 ## `separate()`
@@ -280,7 +280,7 @@ It's simple. Just tell R the column to split and the columns to create:
 
 ```{r}
   table3 %>% 
-    separate(rate, into = c("cases", "population"), 
+    separate(col = rate, into = c("cases", "population"), 
              sep="/", convert = TRUE)
 ```
 
@@ -290,7 +290,7 @@ Can also separate on a specific character position with the `sep` argument. For 
 
 ```{r}
   table3 %>% 
-    separate(rate, into = c("century", "year"), 
+    separate(col = rate, into = c("century", "year"), 
              sep=2, convert = TRUE)
 ```
 
@@ -308,7 +308,7 @@ In this example, `new` is the name of the new column we want to create by combin
 
 ```{r}
   table5 %>% 
-    unite(new, century, year)
+    unite(col = new, century, year)
 ```
 
 ## `unite()`
@@ -317,7 +317,7 @@ By default `unite()` will add an underscore, but adding `sep=""` (no space) will
 
 ```{r}
   table5 %>% 
-    unite(new, century, year, sep = "")
+    unite(col = new, century, year, sep = "")
 ```
 
 ## Missing values
