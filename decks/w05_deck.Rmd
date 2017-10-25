@@ -239,9 +239,9 @@ Let's use `spread()` to make two proper variables: `cases` and `population`.
 
 The `key` in this example is the `type` column, and the values we want to spread are stored in `count`.
 
-<center>
-<img src="../img/spread.png" style="background:none; border:none; box-shadow:none;">
-</center>
+```{r}
+  table2
+```
 
 ## `spread()`
 
@@ -253,9 +253,13 @@ Just like with `gather()`, we'll pass two arguments to `spread()` in addition to
 
 ## <span style="color:red">`spread` out wide, or `gather` (stack) into a long (tall) pile</span> {data-background-image="https://media.giphy.com/media/Oi9xgpNEiI8us/giphy.gif"}
 
+## split and combine columns
+
+The `separate()` and `unite()` functions split and combine columns.
+
 ## `separate()`
 
-We want split `rate` into two columns: `cases` and `population`
+Here we want split `rate` into two columns: `cases` and `population`
 
 <center>
 <img src="../img/separate.png" style="background:none; border:none; box-shadow:none;">
@@ -263,7 +267,7 @@ We want split `rate` into two columns: `cases` and `population`
 
 ## `separate()`
 
-Simple, just tell R the column to split and the columns to create:
+It's simple. Just tell R the column to split and the columns to create:
 
 ```{r}
   table3 %>% 
