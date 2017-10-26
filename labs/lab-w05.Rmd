@@ -36,6 +36,11 @@ Here are some chunks for running tutorial examples:
 ```
 
 
+```{r table4b-try}
+
+```
+
+
 ```{r table2}
 
 ```

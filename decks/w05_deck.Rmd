@@ -244,6 +244,11 @@ Try gathering `table4b` (also included with `tidyverse`) to create variables for
   table4b
 ```
 
+```{r}
+  table4b %>%  # remember pipes?
+    gather("year", "population", -country)
+```
+
 ## `spread()`
 
 Now look at `table2`. `type` is not a variable!
