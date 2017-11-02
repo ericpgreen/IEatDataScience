@@ -77,7 +77,6 @@ Today we'll focus on relational data. Some of today's examples come from @wickha
 
 * Understand what makes data "relational"
 * Perform inner and outer joins
-* Bind (append) data
 
 ## Login to Duke's Docker-ized version of RStudio Server
 
@@ -376,34 +375,109 @@ And therefore appears twice with the suffix `.x` and `.y`.
     full_join(datR2, by="ID")
 ```
 
-## Bind rather than join
+## Use the suffix argument
 
-```{r bind}
-# create variables for round
-  datR1$round <- 1
-  datR2$round <- 2
-# bind (append)
-  datR12 <- 
+```{r suffix}
   datR1 %>%
-    bind_rows(datR2)
-  View(datR12)
+    full_join(datR2, 
+              by = "ID", 
+              suffix = c(".r1", ".r2"))
 ```
 
-Scroll down. What does R do for variables not included in round 2?
+## A brief detour
 
-## Now what?
+<center>
+<img src="../img/so6.png" style="background:none; border:none; box-shadow:none;">
+</center>
 
-(hint: think back to last week and `tidyr` functions)
+## My attempt
 
-## Then `reshape()` long to wide
-
-```{r reshape}
-  datR12W <- reshape(datR12,
-                     timevar = "round",
-                     v.names = "p.knowsHIV",
-                     idvar = "ID",
-                     direction = "wide")
+```{r attempt}
+  r1 <- data.frame(id=c(1, 2, 3),
+                   v1=c(1, 1, 0),
+                   v2=c(0, 1, 1),
+                   round=c(1, 1, 1))
+  
+  r2 <- data.frame(id=c(1, 2, 3),
+                   v2=c(1, 0, 0),
+                   round=c(2, 2, 2))
+  
+  r12 <- bind_rows(r1, r2)
+  
+  r12w <- reshape(r12,
+                  timevar = "round",
+                  v.names = "v2",
+                  idvar = "id",
+                  direction = "wide")
+  r12w
 ```
+
+## Some reactions
+
+<center>
+<img src="../img/so6b.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## A promising idea
+
+```{r idea}
+  r12 %>% 
+    mutate(v1 = replace(v1, is.na(v1), v1[!is.na(v1)])) %>% 
+    mutate(round = paste0("v2.", round)) %>% 
+    spread(round, v2)
+```
+
+## A new idea
+
+<center>
+<img src="../img/so6c.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+```{r idea2}
+  nm1 <- setdiff(names(r1), names(r2))
+  r2[nm1] <- r1[nm1]
+  bind_rows(r1, r2) %>% 
+    mutate(round = paste0("v2.", round)) %>% 
+    spread(round, v2)
+```
+
+## Another wrinkle
+
+<center>
+<img src="../img/so6d.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## An updated example
+
+<center>
+<img src="../img/so6e.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+```{r unbalanced, include=FALSE}
+  r1 <- data.frame(id=c(1, 2, 3, 4),
+                   v1=c(1, 1, 0, 0),
+                   v2=c(0, 1, 1, 1),
+                   round=c(1, 1, 1, 1))
+  
+  r2 <- data.frame(id=c(1, 2, 3),
+                   v2=c(1, 0, 0),
+                   round=c(2, 2, 2))
+```
+
+## The Answer!
+
+<center>
+<img src="../img/so6f.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## The Answer!
+
+```{r answer}
+  full_join(r1, r2, by = "id", 
+            suffix = c(".1", ".2")) %>%
+    select(-starts_with("round"))
+```
+
 
 ## Now join individuals to clinics
 
@@ -411,14 +485,20 @@ Scroll down. What does R do for variables not included in round 2?
 ## Now join individuals to clinics
 
 ```{r clinics}
-  datR12W %>%
+  datR1 %>%
+    full_join(datR2, 
+              by = "ID", 
+              suffix = c(".r1", ".r2")) %>%
     left_join(clinics, by="clinicID")
 ```
 
 ## Now join individuals/clinics to districts
 
 ```{r districts}
-  datR12W %>%
+  datR1 %>%
+    full_join(datR2, 
+              by = "ID", 
+              suffix = c(".r1", ".r2")) %>%
     left_join(clinics, by="clinicID") %>%
     left_join(districts, by="district")
 ```

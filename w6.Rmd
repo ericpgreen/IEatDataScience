@@ -13,7 +13,6 @@ By the end of this session, you should be able to:
 
 * Understand what makes data "relational"
 * Perform inner and outer joins
-* Bind (append) data
 
 <br>
 

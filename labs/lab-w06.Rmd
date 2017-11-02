@@ -116,16 +116,60 @@ You need to download some new data for this tutorial. Notice that the chunk is s
 
 ```
 
-```{r try_full}
+```{r suffix}
 
 ```
 
-```{r bind}
-
+```{r attempt}
+  r1 <- data.frame(id=c(1, 2, 3),
+                   v1=c(1, 1, 0),
+                   v2=c(0, 1, 1),
+                   round=c(1, 1, 1))
+  
+  r2 <- data.frame(id=c(1, 2, 3),
+                   v2=c(1, 0, 0),
+                   round=c(2, 2, 2))
+  
+  r12 <- bind_rows(r1, r2)
+  
+  r12w <- reshape(r12,
+                  timevar = "round",
+                  v.names = "v2",
+                  idvar = "id",
+                  direction = "wide")
+  r12w
 ```
 
-```{r reshape}
+```{r idea}
+  r12 %>% 
+    mutate(v1 = replace(v1, is.na(v1), v1[!is.na(v1)])) %>% 
+    mutate(round = paste0("v2.", round)) %>% 
+    spread(round, v2)
+```
 
+```{r idea2}
+  nm1 <- setdiff(names(r1), names(r2))
+  r2[nm1] <- r1[nm1]
+  bind_rows(r1, r2) %>% 
+    mutate(round = paste0("v2.", round)) %>% 
+    spread(round, v2)
+```
+
+```{r unbalanced}
+  r1 <- data.frame(id=c(1, 2, 3, 4),
+                   v1=c(1, 1, 0, 0),
+                   v2=c(0, 1, 1, 1),
+                   round=c(1, 1, 1, 1))
+  
+  r2 <- data.frame(id=c(1, 2, 3),
+                   v2=c(1, 0, 0),
+                   round=c(2, 2, 2))
+```
+
+```{r answer}
+  full_join(r1, r2, by = "id", 
+            suffix = c(".1", ".2")) %>%
+    select(-starts_with("round"))
 ```
 
 ```{r clinics}
