@@ -1,0 +1,137 @@
+---
+title: "IEDSFB Week 6"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+  library(knitr)
+  knitr::opts_chunk$set(echo = TRUE)
+  opts_knit$set(root.dir=normalizePath('../'))
+  library(tidyverse)
+```
+
+# Load packages
+
+```{r packages}
+  list.of.packages <- c("nycflights13")
+  new.packages <- list.of.packages[!(list.of.packages %in%
+                                     installed.packages()[,"Package"])]
+  if(length(new.packages)) install.packages(new.packages)
+  
+  library(tidyverse)
+  library(nycflights13)
+```
+
+# nycflights13
+
+```{r examine}
+
+```
+
+
+```{r example}
+  x <- tribble(
+    ~key, ~val_x,
+       1, "x1",
+       2, "x2",
+       3, "x3"
+  )
+  y <- tribble(
+    ~key, ~val_y,
+       1, "y1",
+       2, "y2",
+       4, "y3"
+  )
+```
+
+```{r inner}
+
+```
+
+```{r left}
+
+```
+
+```{r right}
+
+```
+
+```{r full}
+
+```
+
+```{r small}
+# make a smaller dataset that is easier to see
+  flights2 <- flights %>% 
+    select(year:day, hour, origin, dest, tailnum, carrier)
+  flights2
+```
+
+```{r left_join1}
+
+```
+
+```{r left_join2}
+
+```
+
+```{r left_join3}
+
+```
+
+
+# Disclosure example
+
+## Download data to your machine
+
+You need to download some new data for this tutorial. Notice that the chunk is set to `eval=FALSE` so that R will not download the file over and over again when you knit.
+
+```{r download, eval=FALSE, warning=FALSE, message=FALSE}
+  download.file("https://www.dropbox.com/s/c0ftjbri0zpcr79/r2d2-w06-clinics.csv?dl=1", 
+                destfile = "input/r2d2-w06-clinics.csv")
+  download.file("https://www.dropbox.com/s/3x5z28jtxolo6ae/r2d2-w06-districts.csv?dl=1", 
+                destfile = "input/r2d2-w06-districts.csv")
+  download.file("https://www.dropbox.com/s/v7zfaq77j37iiee/r2d2-w06-r1.csv?dl=1", 
+                destfile = "input/r2d2-w06-r1.csv")
+  download.file("https://www.dropbox.com/s/b92u6782dwpa9s7/r2d2-w06-r2.csv?dl=1", 
+                destfile = "input/r2d2-w06-r2.csv")
+```
+
+## Import data into your environment
+
+```{r loadCSV}
+  datR1 <- read.csv("input/r2d2-w06-r1.csv", stringsAsFactors = FALSE)
+  datR2 <- read.csv("input/r2d2-w06-r2.csv", stringsAsFactors = FALSE)
+  clinics <- read.csv("input/r2d2-w06-clinics.csv", stringsAsFactors = FALSE)
+  districts <- read.csv("input/r2d2-w06-districts.csv", 
+                        stringsAsFactors = FALSE)
+```
+
+```{r keep_all}
+
+```
+
+```{r try_full}
+
+```
+
+```{r bind}
+
+```
+
+```{r reshape}
+
+```
+
+```{r clinics}
+
+```
+
+```{r districts}
+
+```
