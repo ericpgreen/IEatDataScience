@@ -1,0 +1,45 @@
+---
+title: "IEDSFB Week 7"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+  library(knitr)
+  knitr::opts_chunk$set(echo = TRUE)
+  opts_knit$set(root.dir=normalizePath('../'))
+  library(tidyverse)
+```
+
+# Load packages
+
+```{r packages}
+  list.of.packages <- c("likert")
+  new.packages <- list.of.packages[!(list.of.packages %in%
+                                     installed.packages()[,"Package"])]
+  if(length(new.packages)) install.packages(new.packages)
+  
+  library(tidyverse)
+  library(likert)
+```
+
+## Download data to your machine
+
+You need to download some new data for this tutorial. Notice that the chunk is set to `eval=FALSE` so that R will not download the file over and over again when you knit.
+
+```{r download, eval=FALSE, warning=FALSE, message=FALSE}
+  download.file("https://www.dropbox.com/s/848ze40t8ruv613/r2d2-w07.csv?dl=1", 
+                destfile = "input/r2d2-w07.csv")
+```
+
+## Import data into your environment
+
+```{r loadCSV}
+  datR1 <- read.csv("input/r2d2-w07.csv", stringsAsFactors = FALSE)
+```
+
+## Get started
