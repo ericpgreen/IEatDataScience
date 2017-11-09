@@ -1,5 +1,5 @@
 ---
-title: "Relational Data"
+title: "Strings, Factors, and Dates"
 output:
   html_document:
     toc: false
