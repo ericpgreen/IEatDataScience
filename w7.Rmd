@@ -1,0 +1,22 @@
+---
+title: "Relational Data"
+output:
+  html_document:
+    toc: false
+---
+
+<br>
+
+# Objectives
+
+By the end of this session, you should be able to:
+
+* Create and search strings using regex
+* Create and plot factors
+* Create and manipulate dates
+
+<br>
+
+<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w07_deck.html" style="border: none;"></iframe>
+
+Or follow along [here](decks/w07_deck.html). 
