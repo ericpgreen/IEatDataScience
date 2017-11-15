@@ -1,0 +1,25 @@
+---
+title: "Plots!"
+output:
+  html_document:
+    toc: false
+---
+
+<br>
+
+# Objectives
+
+By the end of this session, you should be able to:
+
+* Describe the main arguments of a `ggplot()` call
+* Map plot aesthetics to variables
+* Style plots by color, fill, and shape
+* Facet plots to make small multiples
+* Set the theme and add labels
+
+
+<br>
+
+<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w07_deck.html" style="border: none;"></iframe>
+
+Or follow along [here](decks/w08_deck.html). 
