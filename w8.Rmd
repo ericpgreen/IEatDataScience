@@ -20,6 +20,6 @@ By the end of this session, you should be able to:
 
 <br>
 
-<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w07_deck.html" style="border: none;"></iframe>
+<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w08_deck.html" style="border: none;"></iframe>
 
 Or follow along [here](decks/w08_deck.html). 
