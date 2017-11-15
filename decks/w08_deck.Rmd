@@ -110,7 +110,7 @@ We'll need:
 Four datasets with nearly identical descriptive stats.
 
 <center>
-<img src="../img/aq.png" style="background:none; border:none; box-shadow:none;">
+<img src="../img/aq.png" style="background:none; border:none; box-shadow:none; height: 600px">
 </center>
 
 ## Data Saurus
