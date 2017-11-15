@@ -105,7 +105,23 @@ We'll need:
 <img src="../img/kh01.png" style="background:none; border:none; box-shadow:none;">
 </center>
 
-## Ask
+## Anscombe's quartet
+
+Four datasets with nearly identical descriptive stats.
+
+<center>
+<img src="../img/aq.png" style="background:none; border:none; box-shadow:none;">
+</center>
+
+## Data Saurus
+
+<center>
+<img src="../img/datadino.gif" style="background:none; border:none; box-shadow:none;">
+</center>
+
+By Alberto Cairo. Get as an R package [`datasauRus`](https://github.com/stephlocke/datasauRus).
+
+## Ask questions
 
 @wickham2017 suggest the following EDA questions:  
 
