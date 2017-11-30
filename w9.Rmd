@@ -1,0 +1,22 @@
+---
+title: "Interactive Plots!"
+output:
+  html_document:
+    toc: false
+---
+
+<br>
+
+# Objectives
+
+By the end of this session, you should be able to:
+
+* Use html widgets
+* Create a shiny app
+
+
+<br>
+
+<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w09_deck.html" style="border: none;"></iframe>
+
+Or follow along [here](decks/w09_deck.html). 
