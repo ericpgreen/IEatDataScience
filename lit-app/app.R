@@ -6,6 +6,7 @@ library(grid)
 library(useful)
 
 load("data/datPct.RData")
+dpct <- datPct
 
 ui <- shinyUI(fluidPage(
   
