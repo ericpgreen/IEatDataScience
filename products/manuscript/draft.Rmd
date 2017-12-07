@@ -1,0 +1,91 @@
+---
+title             : "The title"
+shorttitle        : "Title"
+
+author: 
+  - name          : "First Author"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+
+affiliation:
+  - id            : "1"
+    institution   : "Wilhelm-Wundt-University"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+author_note: >
+  Complete departmental affiliations for each author (note the indentation, if you start a new paragraph).
+
+  Enter author note here.
+
+abstract: >
+  Enter abstract here (note the indentation, if you start a new paragraph).
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["bibliography.bib"]
+
+figsintext        : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : yes
+mask              : no
+
+lang              : "english"
+class             : "man"
+output            : papaja::apa6_word 
+---
+
+```{r include = FALSE}
+library("papaja")
+```
+
+There is a lot of important literature to cite [@button_power_2013;@ioannidis_why_2005]. @sterne_recommendations_2011 have important things to say.
+
+# Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+## Material
+
+## Procedure
+
+# Results
+
+The mean length is `r mean(iris$Sepal.Length)`. Table \@ref(tab:myTable) shows some interesting results. Figure \@ref(fig:myFigure) shows an interesting plot.
+
+```{r myTable, results = "asis"}
+  knitr::kable(
+  head(mtcars[, 1:8], 10), booktabs = TRUE,
+  caption = 'A table of the first 10 rows of the mtcars data.'
+  )
+```
+
+```{r myFigure, fig.height=3, fig.cap="This is a figure."}
+  library(tidyverse)
+  ggplot(iris, aes(Sepal.Length)) + 
+    geom_histogram() + 
+    facet_grid(. ~ Species) +
+    theme_bw()
+```
+
+
+# Discussion
+
+
+\newpage
+
+# References
+```{r create_r-references, eval=FALSE}
+r_refs(file = "bibliography.bib")
+```
+
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}

@@ -1,0 +1,24 @@
+---
+title: "Reproducible Documents"
+output:
+  html_document:
+    toc: false
+---
+
+<br>
+
+# Objectives
+
+By the end of this session, you should be able to:
+
+* Create a Rmarkdown file
+* Modify chunk options
+* Write inline code
+* Include references
+* Reference tables and figures
+
+<br>
+
+<iframe width="960" height="700" src="http://www.globalhealthresearch.co/workshops/ieat/decks/w10_deck.html" style="border: none;"></iframe>
+
+Or follow along [here](decks/w10_deck.html). 
